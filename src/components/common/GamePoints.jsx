@@ -9,7 +9,7 @@ function GamePoints({ tab1, text, icon, points, pointsBg }) {
       <img src={icon} alt="" />
       <div className="d-flex fd-column al-center jc-center">
         <span>{text}</span>
-        <span>{points}</span>
+        <span>{points ? points : 0}</span>
       </div>
     </div>
   );

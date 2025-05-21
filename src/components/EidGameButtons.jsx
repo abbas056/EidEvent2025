@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { ApiContext } from "../services/Api";
 import exploreBtn from "../assets/Explorebutton.png";
 
-function EidGameButtons({ points, input, setInput }) {
+function EidGameButtons({ points, input, setInput, playGame, reqPoints }) {
   const { disable, setDisable } = useContext(ApiContext);
   const [error, setError] = useState("Max value = 999");
 
@@ -13,9 +13,9 @@ function EidGameButtons({ points, input, setInput }) {
     let number = parseInt(val, 10);
     number = number > max ? max : number <= 0 ? 1 : number;
     setInput(number.toString());
-
     if (points === 0 && event.target.value === "") {
       setInput("1");
+      setDisable(true);
     } else if (points > 1 && event.target.value === "") {
       setError("Enter some value");
       setDisable(true);
@@ -51,10 +51,14 @@ function EidGameButtons({ points, input, setInput }) {
         <div className="error">{error}</div>
       </div>
       <div className="play-button d-flex fd-column al-center jc-end gap-2">
-        <button disabled={disable}>
-          <img src={exploreBtn} alt="" />
+        <button disabled={disable} onClick={playGame}>
+          <img
+            className={disable ? "gray-1" : "gray-0"}
+            src={exploreBtn}
+            alt=""
+          />
         </button>
-        <span className="error">20k Pts Req</span>
+        <span className="error">{reqPoints}k Pts Req</span>
       </div>
     </div>
   );

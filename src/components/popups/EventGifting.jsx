@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { cross, dummyData, slicePlease } from "../../js/helpers";
 import eventGiftingTitle from "../../assets/popups/Event-Gifting/title.png";
 import EventGifts from "../common/EventGifts";
@@ -23,7 +23,22 @@ import {
   usersDailyRewards,
   usersOverallRewards,
 } from "../../js/data";
-function EventGifting({ close }) {
+import { ApiContext } from "../../services/Api";
+import Loader from "../common/Loader";
+function EventGifting({ close, eventGifting }) {
+  const {
+    userInfo,
+    lbButtonsTop,
+    setlbButtonsTop,
+    lbMiddle,
+    setlbMiddle,
+    lbDayButtons,
+    setlbDayButtons,
+    eventGiftingLeaderboardData,
+    isLoading,
+    CurrentDate,
+    PreviousDate,
+  } = useContext(ApiContext);
   const [rewButtonsTop, setrewButtonsTop] = useState({
     btn1: true,
     btn2: false,
@@ -31,18 +46,6 @@ function EventGifting({ close }) {
   const [rewButtonsBottom, setRewButtonsBottom] = useState({
     daily: true,
     overall: false,
-  });
-  const [lbButtonsTop, setlbButtonsTop] = useState({
-    btn1: true,
-    btn2: false,
-  });
-  const [lbMiddle, setlbMiddle] = useState({
-    btn1: true,
-    btn2: false,
-  });
-  const [lbDayButtons, setlbDayButtons] = useState({
-    btn1: true,
-    btn2: false,
   });
   const [active, setActive] = useState(true);
   const restBoard = useRef(null);
@@ -54,8 +57,17 @@ function EventGifting({ close }) {
       restBoard.current.scrollTop = 0;
     }
   };
-  const topWinners = slicePlease(dummyData, 0, 3);
-  const restWinners = slicePlease(dummyData, 3, dummyData?.length);
+  const topWinners = slicePlease(eventGiftingLeaderboardData?.list, 0, 3);
+  const restWinners = slicePlease(
+    eventGiftingLeaderboardData?.list,
+    3,
+    eventGiftingLeaderboardData?.list?.length
+  );
+  let userDailyPot = userInfo?.beansPotInfo?.[`DAILY_USER_${CurrentDate}`];
+  let userPreviousPot = userInfo?.beansPotInfo?.[`DAILY_USER_${PreviousDate}`];
+  let talentDailyPot = userInfo?.beansPotInfo?.[`DAILY_GEMS_${CurrentDate}`];
+  let talentPreviousPot =
+    userInfo?.beansPotInfo?.[`DAILY_GEMS_${PreviousDate}`];
 
   const renderGifterRewards = () => {
     if (rewButtonsTop.btn1 == true)
@@ -100,7 +112,7 @@ function EventGifting({ close }) {
           key={3}
           potName={potName}
           potImg={pot}
-          value={999999}
+          value={rewButtonsTop.btn1 ? talentDailyPot : userDailyPot}
           rewButtonsTop={rewButtonsTop}
           rewButtonsBottom={rewButtonsBottom}
           rewards={rewards1}
@@ -113,7 +125,6 @@ function EventGifting({ close }) {
           key={4}
           potName={potName}
           potImg={pot}
-          value={999999}
           rewButtonsTop={rewButtonsTop}
           rewButtonsBottom={rewButtonsBottom}
           rewards={rewards2}
@@ -128,8 +139,10 @@ function EventGifting({ close }) {
         className="event-gifting"
         style={
           rewButtonsTop.btn1 && rewButtonsBottom.daily
-            ? { backgroundImage: `url(${bg1})` }
-            : { backgroundImage: `url(${bg2})` }
+            ? { backgroundImage: `url(${bg1})`, height: "460vw" }
+            : rewButtonsTop.btn2 && rewButtonsBottom.daily
+            ? { backgroundImage: `url(${bg2})`, height: "430vw" }
+            : { backgroundImage: `url(${bg2})`, height: "420vw" }
         }
       >
         <img className="title m-auto p-abs" src={eventGiftingTitle} alt="" />
@@ -182,67 +195,33 @@ function EventGifting({ close }) {
           btnHeight="8vw"
           color="white"
         />
-        <SubButtons
-          subButton={lbDayButtons}
-          setsubButton={setlbDayButtons}
-          btn1Name="Today"
-          btn2Name="Previous Day"
-          btnBg={subBtnBg}
-          containerWidth="50%"
-          btnWidth="48%"
-          btnHeight="8vw"
-          color="white"
-        />
+        {lbMiddle.btn2 ? null : (
+          <SubButtons
+            subButton={lbDayButtons}
+            setsubButton={setlbDayButtons}
+            btn1Name="Today"
+            btn2Name="Previous Day"
+            btnBg={subBtnBg}
+            containerWidth="50%"
+            btnWidth="48%"
+            btnHeight="8vw"
+            color="white"
+          />
+        )}
 
-        <div className="rank-section p-rel">
-          {dummyData?.length === 0 ? (
-            <p className="no-data">No Records Found</p>
-          ) : (
-            <div className="rank-section-inner">
-              <div className="top-winners d-flex jc-sEven al-end m-auto ">
-                {topWinners?.map(
-                  (
-                    {
-                      nickName,
-                      userScore,
-                      userLevel,
-                      actorLevel,
-                      portrait,
-                      userId,
-                    },
-                    index
-                  ) => {
-                    return (
-                      <div className="user-container p-rel" key={index}>
-                        <TopWinners
-                          userName={nickName}
-                          userScore={userScore}
-                          userAvatar={portrait}
-                          userId={userId}
-                          index={index}
-                          userLevel={userLevel}
-                          actorLevel={actorLevel}
-                          lbButtonsTop={lbButtonsTop}
-                        />
-                      </div>
-                    );
-                  }
-                )}
-              </div>
-              <img className="bar-bottom" src={barbottom} alt="" />
-
-              <div
-                ref={restBoard}
-                className={
-                  active ? "rest-ranking" : "rest-ranking rest-ranking-max"
-                }
-                style={{ maxHeight: `119vw` }}
-              >
-                {restWinners &&
-                  restWinners?.map(
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <div className="rank-section p-rel">
+            {eventGiftingLeaderboardData?.count === 0 ? (
+              <p className="no-data">No Records Found</p>
+            ) : (
+              <div className="rank-section-inner">
+                <div className="top-winners d-flex jc-sEven al-end m-auto ">
+                  {topWinners?.map(
                     (
                       {
-                        nickName,
+                        nickname,
                         userScore,
                         userLevel,
                         actorLevel,
@@ -250,33 +229,98 @@ function EventGifting({ close }) {
                         userId,
                       },
                       index
-                    ) => (
-                      <div key={index}>
-                        <RestWinners
-                          userName={nickName}
-                          userScore={userScore}
-                          userAvatar={portrait}
-                          index={index}
-                          userId={userId}
-                          listNumber={index + 4}
-                          userLevel={userLevel}
-                          actorLevel={actorLevel}
-                          lbButtonsTop={lbButtonsTop}
-                        />
-                      </div>
-                    )
+                    ) => {
+                      return (
+                        <div className="user-container p-rel" key={index}>
+                          <TopWinners
+                            userName={nickname}
+                            userScore={userScore}
+                            userAvatar={portrait}
+                            userId={userId}
+                            index={index}
+                            userLevel={userLevel}
+                            actorLevel={actorLevel}
+                            rewButtonsTop={rewButtonsTop}
+                            lbButtonsTop={lbButtonsTop}
+                            lbMiddle={lbMiddle}
+                            lbDayButtons={lbDayButtons}
+                            beanPotValue={
+                              lbButtonsTop.btn1 && lbDayButtons.btn1
+                                ? talentDailyPot
+                                : lbButtonsTop.btn1 && lbDayButtons.btn2
+                                ? talentPreviousPot
+                                : lbButtonsTop.btn2 && lbDayButtons.btn1
+                                ? userDailyPot
+                                : talentPreviousPot
+                            }
+                          />
+                        </div>
+                      );
+                    }
                   )}
+                </div>
+                <img className="bar-bottom" src={barbottom} alt="" />
+
+                <div
+                  ref={restBoard}
+                  className={
+                    active ? "rest-ranking" : "rest-ranking rest-ranking-max"
+                  }
+                  style={{ maxHeight: `119vw` }}
+                >
+                  {restWinners &&
+                    restWinners?.map(
+                      (
+                        {
+                          nickname,
+                          userScore,
+                          userLevel,
+                          actorLevel,
+                          portrait,
+                          userId,
+                        },
+                        index
+                      ) => (
+                        <div key={index}>
+                          <RestWinners
+                            userName={nickname}
+                            userScore={userScore}
+                            userAvatar={portrait}
+                            index={index}
+                            userId={userId}
+                            listNumber={index + 4}
+                            userLevel={userLevel}
+                            actorLevel={actorLevel}
+                            rewButtonsTop={rewButtonsTop}
+                            lbButtonsTop={lbButtonsTop}
+                            eventGifting={eventGifting}
+                            lbMiddle={lbMiddle}
+                            lbDayButtons={lbDayButtons}
+                            beanPotValue={
+                              lbButtonsTop.btn1 && lbDayButtons.btn1
+                                ? talentDailyPot
+                                : lbButtonsTop.btn1 && lbDayButtons.btn2
+                                ? talentPreviousPot
+                                : lbButtonsTop.btn1 && lbDayButtons.btn1
+                                ? talentDailyPot
+                                : talentPreviousPot
+                            }
+                          />
+                        </div>
+                      )
+                    )}
+                </div>
               </div>
-            </div>
-          )}
-          {dummyData?.length > 10 ? (
-            <SeeMore
-              position="unset"
-              active={active}
-              handleChangeActive={handleChangeActive}
-            />
-          ) : null}
-        </div>
+            )}
+            {eventGiftingLeaderboardData?.count > 10 ? (
+              <SeeMore
+                position="unset"
+                active={active}
+                handleChangeActive={handleChangeActive}
+              />
+            ) : null}
+          </div>
+        )}
 
         <div className="close p-abs" onClick={close}>
           <img style={{ width: "10vw" }} src={cross()} alt="" />

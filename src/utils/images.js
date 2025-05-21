@@ -8,6 +8,11 @@ import beanIcon from "../assets/bean.png";
 import beanbag from "../assets/beanbag.png";
 import beanpot from "../assets/Beans-Pot.png";
 import explorePointsIcon from "../assets/ExplorePointsIcon.png";
+import oopsHead from "../assets/popups/game/oops.png";
+import amazingTour from "../assets/popups/game/amazing-tour.png";
+import congratulations from "../assets/popups/game/congratulations.png";
+import treasureUnlock from "../assets/popups/game/treasure-unlocked.png";
+import moonlighRecieved from "../assets/popups/game/moonlight-recieved.png";
 
 export {
   header,
@@ -19,6 +24,11 @@ export {
   beanbag,
   beanpot,
   explorePointsIcon,
+  oopsHead,
+  amazingTour,
+  congratulations,
+  treasureUnlock,
+  moonlighRecieved,
 };
 export function rewardImages(rewDesc) {
   var rewImg;
@@ -41,6 +51,8 @@ export function rewardImages(rewDesc) {
     rewImg = baserUrl + "streamkar/rewards/svip.png";
   } else if (rewDesc === "Celebration Profile Frame") {
     rewImg = baserUrl + "streamkar/rewards/celebrationFrame.png";
+  } else if (rewDesc === "Celebration room skin") {
+    rewImg = baserUrl + "streamkar/rewards/celeberationRoomskin.png";
   } else if (rewDesc === "Victor Audio Theme") {
     rewImg = baserUrl + "streamkar/rewards/victoriousRoomSkin.png";
   } else if (rewDesc === "Beans" || rewDesc === "beans") {
@@ -87,8 +99,30 @@ export function rewardImages(rewDesc) {
     rewImg = baserUrl + "streamkar/rewards/seaWolfRoomSkin.png";
   } else if (rewDesc === "Game Master room skin") {
     rewImg = baserUrl + "streamkar/rewards/gameMasterRoomSkin.png";
-  } else if (rewDesc === "gems") {
+  } else if (rewDesc === "gems" || rewDesc === "Gems") {
     rewImg = baserUrl + "streamkar/rewards/gems.png";
+  } else if (rewDesc === "Frenzy room skin") {
+    rewImg = baserUrl + "streamkar/rewards/frenzyRoomSkin.png";
+  } else if (rewDesc === "Subzero room skin") {
+    rewImg = baserUrl + "streamkar/rewards/subzeroSkin.png";
+  } else if (rewDesc === "Aesthetic room skin") {
+    rewImg = baserUrl + "streamkar/rewards/aestheticRoomskin.png";
+  } else if (rewDesc === "Desire frame") {
+    rewImg = baserUrl + "streamkar/rewards/desireFrame.png";
+  } else if (rewDesc === "Peacemaker room skin") {
+    rewImg = baserUrl + "streamkar/rewards/peaceMakerRoomSkin.png";
+  } else if (rewDesc === "Maharaja Premium entrance") {
+    rewImg = baserUrl + "streamkar/rewards/maharajaPremium.png";
+  } else if (rewDesc === "Royalty frame") {
+    rewImg = baserUrl + "streamkar/rewards/royaltiProfileFrame.png";
+  } else if (rewDesc === "Eid Delight Room skin") {
+    rewImg = baserUrl + "streamkar/rewards/noRew.png";
+  } else if (rewDesc === "Eid Delight frame (New)") {
+    rewImg = baserUrl + "streamkar/rewards/eidDelightFrame.png";
+  } else if (rewDesc === "Blessify Room skin (New)") {
+    rewImg = baserUrl + "streamkar/rewards/noRew.png";
+  } else if (rewDesc === "Blessify frame (New)") {
+    rewImg = baserUrl + "streamkar/rewards/blessifyFrame.png";
   } else if (rewDesc === "MasterMind room skin (NEW)") {
     rewImg = baserUrl + "streamkar/rewards/MasterMindRoomSkin.png";
   } else if (rewDesc === "Game Master Battle frame") {
@@ -105,6 +139,12 @@ export function rewardImages(rewDesc) {
     rewImg = baserUrl + "streamkar/rewards/hawk.png";
   } else if (rewDesc === "Game Battle frame") {
     rewImg = baserUrl + "streamkar/rewards/gameMasterFarme.png";
+  } else if (rewDesc === "Eid Mandi room skin") {
+    rewImg = baserUrl + "streamkar/rewards/eidMandiRoomSkin.png";
+  } else if (rewDesc === "Unicorn frame") {
+    rewImg = baserUrl + "streamkar/rewards/unicornFrame.png";
+  } else if (rewDesc === "Monarch frame") {
+    rewImg = baserUrl + "streamkar/rewards/monarchProfileFrame.png";
   } else {
     rewImg = baserUrl + "streamkar/rewards/noRew.png";
   }

@@ -4,9 +4,12 @@ import PurpleKey from "../assets/PurpleKey.png";
 import GreenKey from "../assets/GreenKey.png";
 import BlueKey from "../assets/BlueKey.png";
 
-function Keys({ red = 0, blue = 0, green = 0, purple = 0 }) {
+function Keys({ red = 0, blue = 0, green = 0, purple = 0, chestOpen }) {
   return (
-    <div className="keys p-abs d-flex al-center jc-s-between gap-4 f-tangoSans">
+    <div
+      className="keys p-abs d-flex al-center jc-s-between gap-4 f-tangoSans"
+      style={chestOpen ? { top: "44vw" } : { top: "32vw" }}
+    >
       <div className="d-flex al-center jc-center gap-2">
         <div>
           <div className="value d-flex al-center jc-center p-abs">{red}</div>

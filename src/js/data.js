@@ -6,23 +6,38 @@ import gemspot from "../assets/popups/Event-Gifting/gems-pot.png";
 export const tab1Rewards = [
   {
     id: 1,
-    desc: <span>50% of the beans pot</span>,
+    rank: "1",
+    country: "Turkey",
+    desc: <span>10% of the beans pot</span>,
     frame: [{ pic: `${baserUrl}streamkar/rewards/beanbag.png` }],
   },
   {
     id: 2,
-    desc: <span>30% of the beans pot</span>,
+    rank: "1",
+    country: "Tunisia",
+    desc: <span>20% of the beans pot</span>,
     frame: [{ pic: `${baserUrl}streamkar/rewards/beanbag.png` }],
   },
   {
     id: 3,
-    desc: <span>20% of the beans pot</span>,
+    rank: "1",
+    country: "Bahrain",
+    desc: <span>30% of the beans pot</span>,
+    frame: [{ pic: `${baserUrl}streamkar/rewards/beanbag.png` }],
+  },
+  {
+    id: 4,
+    rank: "1",
+    country: "Egypt",
+    desc: <span>40% of the beans pot</span>,
     frame: [{ pic: `${baserUrl}streamkar/rewards/beanbag.png` }],
   },
 ];
 export const talentsOverallRewards = [
   {
     id: 1,
+    name: "Talent",
+    target: "Target: 65m",
     desc: (
       <span>
         2,000,000 gems + Eid Delight frame (New) x5 days + Eid Delight room skin
@@ -31,12 +46,14 @@ export const talentsOverallRewards = [
     ),
     frame: [
       { pic: gemsbag },
-      { pic: `${baserUrl}streamkar/rewards/noRew.png` },
+      { pic: `${baserUrl}streamkar/rewards/eidDelightFrame.png` },
       { pic: `${baserUrl}streamkar/rewards/noRew.png` },
     ],
   },
   {
     id: 2,
+    name: "Talent",
+    target: "Target: 50m",
     desc: (
       <span>
         1,000,000 gems + Eid Delight frame (New) x3 days + Eid Delight room skin
@@ -45,12 +62,14 @@ export const talentsOverallRewards = [
     ),
     frame: [
       { pic: gemsbag },
-      { pic: `${baserUrl}streamkar/rewards/noRew.png` },
+      { pic: `${baserUrl}streamkar/rewards/eidDelightFrame.png` },
       { pic: `${baserUrl}streamkar/rewards/noRew.png` },
     ],
   },
   {
     id: 3,
+    name: "Talent",
+    target: "Target: 40m",
     desc: (
       <span>
         500,000 gems + Eid Delight frame (New) x1 day + Eid Delight room skin
@@ -59,7 +78,7 @@ export const talentsOverallRewards = [
     ),
     frame: [
       { pic: gemsbag },
-      { pic: `${baserUrl}streamkar/rewards/noRew.png` },
+      { pic: `${baserUrl}streamkar/rewards/eidDelightFrame.png` },
       { pic: `${baserUrl}streamkar/rewards/noRew.png` },
     ],
   },
@@ -70,7 +89,7 @@ export const talentsDailyRewards = [
     desc: <span>40% of the Gems Pot + Blessify frame (New) x3 days</span>,
     frame: [
       { pic: gemspot },
-      { pic: `${baserUrl}streamkar/rewards/noRew.png` },
+      { pic: `${baserUrl}streamkar/rewards/blessifyFrame.png` },
     ],
   },
   {
@@ -78,7 +97,7 @@ export const talentsDailyRewards = [
     desc: <span>30% of the Gems Pot + Blessify frame (New) x2 days</span>,
     frame: [
       { pic: gemspot },
-      { pic: `${baserUrl}streamkar/rewards/noRew.png` },
+      { pic: `${baserUrl}streamkar/rewards/blessifyFrame.png` },
     ],
   },
   {
@@ -86,44 +105,44 @@ export const talentsDailyRewards = [
     desc: <span>10% of the Gems Pot + Blessify frame (New) x1 day </span>,
     frame: [
       { pic: gemspot },
-      { pic: `${baserUrl}streamkar/rewards/noRew.png` },
+      { pic: `${baserUrl}streamkar/rewards/blessifyFrame.png` },
     ],
   },
   {
     id: 4,
-    desc: <span>10% of the Gems Pot + Blessify frame (New) x3 days </span>,
+    desc: <span>10% of the Gems Pot + Blessify frame (New) x1 days </span>,
     frame: [
       { pic: gemspot },
-      { pic: `${baserUrl}streamkar/rewards/noRew.png` },
+      { pic: `${baserUrl}streamkar/rewards/blessifyFrame.png` },
     ],
   },
   {
     id: 5,
-    desc: <span>10% of the Gems Pot + Blessify frame (New) x2 days </span>,
+    desc: <span>10% of the Gems Pot + Blessify frame (New) x1 days </span>,
     frame: [
       { pic: gemspot },
-      { pic: `${baserUrl}streamkar/rewards/noRew.png` },
+      { pic: `${baserUrl}streamkar/rewards/blessifyFrame.png` },
     ],
   },
   {
     id: 6,
     desc: <span>Blessify frame (New) x1 day </span>,
-    frame: [{ pic: `${baserUrl}streamkar/rewards/noRew.png` }],
+    frame: [{ pic: `${baserUrl}streamkar/rewards/blessifyFrame.png` }],
   },
   {
     id: 7,
     desc: <span>Blessify frame (New) x1 day </span>,
-    frame: [{ pic: `${baserUrl}streamkar/rewards/noRew.png` }],
+    frame: [{ pic: `${baserUrl}streamkar/rewards/blessifyFrame.png` }],
   },
   {
     id: 8,
     desc: <span>Blessify frame (New) x1 day </span>,
-    frame: [{ pic: `${baserUrl}streamkar/rewards/noRew.png` }],
+    frame: [{ pic: `${baserUrl}streamkar/rewards/blessifyFrame.png` }],
   },
   {
     id: 9,
     desc: <span>Blessify frame (New) x1 day </span>,
-    frame: [{ pic: `${baserUrl}streamkar/rewards/noRew.png` }],
+    frame: [{ pic: `${baserUrl}streamkar/rewards/blessifyFrame.png` }],
   },
   {
     id: 10,
@@ -134,20 +153,22 @@ export const talentsDailyRewards = [
 export const usersOverallRewards = [
   {
     id: 1,
+    name: "Gifter",
     desc: (
       <span>
-        3,000,000 Beans + Blessify frame (New) x5 days + Blessify skin (New) x5
-        days
+        3,000,000 Beans + Blessify frame (New) x5 days + Blessify room skin
+        (New) x5 days
       </span>
     ),
     frame: [
       { pic: `${baserUrl}streamkar/rewards/beanbag.png` },
-      { pic: `${baserUrl}streamkar/rewards/noRew.png` },
+      { pic: `${baserUrl}streamkar/rewards/blessifyFrame.png` },
       { pic: `${baserUrl}streamkar/rewards/noRew.png` },
     ],
   },
   {
     id: 2,
+    name: "Gifter",
     desc: (
       <span>
         2,000,000 + Beans Blessify frame (New) x3 days + Blessify room skin
@@ -156,12 +177,13 @@ export const usersOverallRewards = [
     ),
     frame: [
       { pic: `${baserUrl}streamkar/rewards/beanbag.png` },
-      { pic: `${baserUrl}streamkar/rewards/noRew.png` },
+      { pic: `${baserUrl}streamkar/rewards/blessifyFrame.png` },
       { pic: `${baserUrl}streamkar/rewards/noRew.png` },
     ],
   },
   {
     id: 3,
+    name: "Gifter",
     desc: (
       <span>
         1,000,000 Beans + Blessify frame (New) x1 day + Blessify room skin (New)
@@ -170,7 +192,7 @@ export const usersOverallRewards = [
     ),
     frame: [
       { pic: `${baserUrl}streamkar/rewards/beanbag.png` },
-      { pic: `${baserUrl}streamkar/rewards/noRew.png` },
+      { pic: `${baserUrl}streamkar/rewards/blessifyFrame.png` },
       { pic: `${baserUrl}streamkar/rewards/noRew.png` },
     ],
   },
@@ -192,7 +214,6 @@ export const usersDailyRewards = [
     frame: [{ pic: `${baserUrl}streamkar/rewards/beanbag.png` }],
   },
 ];
-
 export const eventGifts = [
   {
     id: 1,
@@ -202,7 +223,7 @@ export const eventGifts = [
   },
   {
     id: 2,
-    img: `${baserUrl}streamkar/gifts/40001673.png`,
+    img: `${baserUrl}streamkar/gifts/40011786.png`,
     name: "Champions",
     cost: "30k",
   },
@@ -551,6 +572,8 @@ export const tab1Details = {
       id: 1,
       country: "Turkey",
       pointsReq: "20K",
+      key: "Red Key",
+      explorePoints: "1",
       rewards: [
         {
           pic: `${baserUrl}streamkar/rewards/eidMandiRoomSkin.png`,
@@ -569,7 +592,7 @@ export const tab1Details = {
           text: "Spaceship entrance x1 day",
         },
         {
-          pic: `${baserUrl}streamkar/rewards/noRew.png`,
+          pic: `${baserUrl}streamkar/rewards/blessifyFrame.png`,
           text: "Blessify frame (New) x1 day",
         },
       ],
@@ -578,6 +601,8 @@ export const tab1Details = {
       id: 2,
       country: "Tunisia",
       pointsReq: "30K",
+      key: "Blue Key",
+      explorePoints: "2",
       rewards: [
         {
           pic: `${baserUrl}streamkar/rewards/monarchProfileFrame.png`,
@@ -605,6 +630,8 @@ export const tab1Details = {
       id: 3,
       country: "Bahrain",
       pointsReq: "40K",
+      key: "Green Key",
+      explorePoints: "3",
       rewards: [
         {
           pic: `${baserUrl}streamkar/rewards/aestheticRoomskin.png`,
@@ -623,7 +650,7 @@ export const tab1Details = {
           text: "Celebration room skin x1 day",
         },
         {
-          pic: `${baserUrl}streamkar/rewards/noRew.png`,
+          pic: `${baserUrl}streamkar/rewards/eidDelightFrame.png`,
           text: "Eid Delight frame (New) x1 day",
         },
       ],
@@ -632,6 +659,8 @@ export const tab1Details = {
       id: 4,
       country: "Egypt",
       pointsReq: "50K",
+      key: "Purple Key",
+      explorePoints: "4",
       rewards: [
         {
           pic: `${baserUrl}streamkar/rewards/peaceMakerRoomSkin.png`,
@@ -664,12 +693,12 @@ export const tab2Details = {
       pointsReq: "30K",
       rewards: [
         {
-          pic: `${baserUrl}streamkar/rewards/noRew.png`,
+          pic: `${baserUrl}streamkar/rewards/blessifyFrame.png`,
           text: "Blessify frame x2 days (New)",
         },
         {
           pic: `${baserUrl}streamkar/rewards/noRew.png`,
-          text: "Blessify room skin x2 days (New) ?",
+          text: "Blessify room skin x2 days (New)",
         },
         {
           pic: `${baserUrl}streamkar/rewards/eidMandiRoomSkin.png`,

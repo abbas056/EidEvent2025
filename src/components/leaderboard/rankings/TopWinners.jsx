@@ -3,7 +3,12 @@ import { ApiContext } from "../../../services/Api";
 import { explorePointsIcon, gemIcon, unknown } from "../../../utils/images";
 import userFrame from "../../../assets/1stUserFrame.png";
 import { baserUrl } from "../../../js/baserUrl";
-import { captureImageError, goTo } from "../../../js/helpers";
+import {
+  captureImageError,
+  estBeans,
+  estCalculation,
+  goTo,
+} from "../../../js/helpers";
 import beanIcon from "../../../assets/bean.png";
 import mascot from "../../../assets/Mascot1.png";
 
@@ -17,8 +22,11 @@ function TopWinners({
   actorLevel,
   tab1,
   lbButtonsTop,
+  lbMiddle,
+  lbDayButtons,
+  beanPotValue,
 }) {
-  const { isLive } = useContext(ApiContext);
+  const { isLive, country, subButton } = useContext(ApiContext);
 
   let icon;
   let levelUrl;
@@ -35,9 +43,9 @@ function TopWinners({
     lvlIconWidth = "7vw";
     icon = gemIcon;
   } else {
-    levelUrl = `${baserUrl}streamkar/common/img/tlv/`;
+    levelUrl = `${baserUrl}streamkar/common/img/ulv/`;
     level = actorLevel;
-    lvlIconWidth = "7vw";
+    lvlIconWidth = "12vw";
     icon = beanIcon;
   }
 
@@ -71,6 +79,15 @@ function TopWinners({
               <img src={icon} alt="" />
               <span> {userScore}</span>
             </div>
+            <div className="est-score p-abs d-flex al-center jc-center">
+              <span className="d-flex al-center jc-center gap-1">
+                {subButton.btn1 ? "Est Beans" : "Beans Won"}
+                <div className="d-flex al-center jc-center">
+                  <img src={beanIcon} alt="" />{" "}
+                  {estBeans(beanPotValue, country, tab1)}
+                </div>
+              </span>
+            </div>
           </div>
         </div>
       ) : (
@@ -100,8 +117,36 @@ function TopWinners({
               <img src={icon} alt="" />
               <span> {userScore}</span>
             </div>
+            {lbMiddle.btn2 ? null : (
+              <div className="est-score p-abs d-flex al-center jc-center">
+                <div
+                  className="d-flex al-center jc-center"
+                  style={{ gap: "0.5vw" }}
+                >
+                  <img
+                    style={
+                      lbButtonsTop.btn2
+                        ? {
+                            backgroundColor: "#295b76",
+                            padding: "0.5vw",
+                            border: "0.5px solid white",
+                            borderRadius: "50%",
+                          }
+                        : null
+                    }
+                    src={icon}
+                    alt=""
+                  />
+                  {lbButtonsTop.btn1 ? (
+                    <>{lbDayButtons.btn1 ? "Est Gems:" : "Gems Won:"}</>
+                  ) : (
+                    <>{lbDayButtons.btn1 ? "Est Beans:" : "Beans Won:"}</>
+                  )}{" "}
+                  {estCalculation(beanPotValue, index + 1, lbButtonsTop)}
+                </div>
+              </div>
+            )}
           </div>
-          {/* <img className="mascot" src={mascot} alt="" /> */}
         </div>
       )}
     </>

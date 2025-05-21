@@ -2,7 +2,13 @@ import React, { useContext } from "react";
 import icon from "../../../assets/ExplorePointsIcon.png";
 import { ApiContext } from "../../../services/Api";
 import { baserUrl } from "../../../js/baserUrl";
-import { captureImageError, goTo } from "../../../js/helpers";
+import {
+  captureImageError,
+  estBeans,
+  estCalculation,
+  formatData,
+  goTo,
+} from "../../../js/helpers";
 import restFrame from "../../../assets/4thUserFrame.png";
 import {
   beanIcon,
@@ -10,6 +16,7 @@ import {
   gemIcon,
   unknown,
 } from "../../../utils/images";
+import LeaderBoardSlider from "./../../leaderboard-slider/LeaderBoardSlider";
 
 function RestWinners({
   userName,
@@ -21,7 +28,13 @@ function RestWinners({
   actorLevel,
   listNumber,
   lbButtonsTop,
+  lbMiddle,
+  lbDayButtons,
+  beanPotValue,
+  eventGifting,
   tab1,
+  tab2,
+  desc,
 }) {
   const { isLive } = useContext(ApiContext);
   let icon;
@@ -33,7 +46,7 @@ function RestWinners({
     level = userLevel;
     lvlIconWidth = "12vw";
     icon = explorePointsIcon;
-  } else if (lbButtonsTop.btn1) {
+  } else if (eventGifting && lbButtonsTop.btn1) {
     levelUrl = `${baserUrl}streamkar/common/img/tlv/`;
     level = actorLevel;
     lvlIconWidth = "7vw";
@@ -41,9 +54,12 @@ function RestWinners({
   } else {
     levelUrl = `${baserUrl}streamkar/common/img/ulv/`;
     level = actorLevel;
-    lvlIconWidth = "7vw";
+    lvlIconWidth = "12vw";
     icon = beanIcon;
   }
+
+  let arrayDesc = desc && JSON.parse(desc);
+
   return (
     <div className="users-details-onward f-tangoItalic" key={index}>
       <div className="d-flex al-center p-rel jc-center gap-1">
@@ -71,10 +87,43 @@ function RestWinners({
           />
         </div>
       </div>
-      <div className="userScore d-flex al-center jc-start">
-        <img src={icon} alt="" />
-        <span>{userScore}</span>
-      </div>
+      {tab2 ? (
+        <div className="rewards-slide d-flex al-center jc-end gap-1">
+          <LeaderBoardSlider description={formatData(arrayDesc)} />
+        </div>
+      ) : (
+        <>
+          {(eventGifting &&
+            lbButtonsTop.btn1 &&
+            lbMiddle.btn1 &&
+            listNumber <= 5) ||
+          (eventGifting &&
+            lbButtonsTop.btn2 &&
+            lbMiddle.btn2 &&
+            listNumber <= 3) ? (
+            <div className="est-score d-flex al-center jc-center">
+              <div className="d-flex al-center jc-center">
+                <img clas src={icon} alt="" />
+                <div>
+                  {lbButtonsTop.btn1 ? (
+                    <>{lbDayButtons.btn1 ? "Est Gems:" : "Gems Won:"}</>
+                  ) : (
+                    <>{lbDayButtons.btn1 ? "Est Beans:" : "Beans Won:"}</>
+                  )}{" "}
+                  {estCalculation(beanPotValue, listNumber, lbButtonsTop)}
+                </div>
+              </div>
+            </div>
+          ) : null}
+          <div
+            className="userScore d-flex al-center jc-start"
+            style={tab1 ? { width: "15vw" } : { width: "20vw" }}
+          >
+            <img src={icon} alt="" />
+            <span>{userScore}</span>
+          </div>
+        </>
+      )}
     </div>
   );
 }

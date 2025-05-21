@@ -50,7 +50,9 @@ const App = () => {
       setIsLoading(true);
       axios
         .get(
-          `${baserUrl}api/activity/eidF/getRecordInfo?eventDesc=20250313_color&rankIndex=21&pageNum=${loadMore}&pageSize=10&type=1&userId=${userId}`
+          `${baserUrl}api/activity/eidF/getRecordInfoV2?eventDesc=20250604_eidi_al_adha&rankIndex=21&pageNum=${loadMore}&pageSize=20&type=${
+            mainTabs.tab1 ? 1 : 2
+          }&userId=${userId}`
         )
         .then((response) => {
           if (loadMore >= 2) {
@@ -62,7 +64,7 @@ const App = () => {
         })
         .catch((err) => console.log(err));
     }
-  }, [userInfo, loadMore, userId]);
+  }, [userInfo, loadMore, userId, mainTabs]);
   const close = () => {
     setPopup(false);
     overFlowAuto();
@@ -93,7 +95,7 @@ const App = () => {
     >
       <span id="extraContent"></span>
       <LanguageBar setLanguage={setLanguage} language={language} />
-      <Marque mainTabs={mainTabs} />
+      {mainTabs.tab1 ? <Marque mainTabs={mainTabs} /> : null}
       <img className="w-100" src={header} alt="" />
       <MainButtons mainTabs={mainTabs} setMainTabs={setMainTabs} />
       <PopupButtons

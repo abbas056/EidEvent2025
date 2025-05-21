@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import RewardsBox from "../RewardsBox";
 import CountryTabs from "../CountryTabs";
 import SubButtons from "../common/SubButtons";
@@ -10,6 +10,8 @@ import tab2LbBg from "../../assets/LeaderboardBase.png";
 import beansPotImg from "../../assets/Beans-Pot.png";
 import beanIcon from "../../assets/bean.png";
 import { tab1Rewards } from "./../../js/data";
+import { ApiContext } from "../../services/Api";
+import Loader from "../common/Loader";
 
 function LeaderBoard({
   title,
@@ -21,14 +23,12 @@ function LeaderBoard({
   arrayData,
   maxheight,
   tab1,
+  tab2,
+  beanPotValue,
 }) {
   const [active, setActive] = useState(true);
-  const [country, setCountry] = useState({
-    Turkey: true,
-    Tunisia: false,
-    Bahrain: false,
-    Egypt: false,
-  });
+  const { country, setCountry, isLoading } = useContext(ApiContext);
+
   const restBoard = useRef(null);
   const handleChangeActive = () => {
     setActive((previous) => {
@@ -47,6 +47,7 @@ function LeaderBoard({
           style={{
             backgroundImage: `url(${tab1LbBg})`,
             padding: "5vw 0 20vw 0",
+            height: "328vw",
           }}
         >
           <img className="title p-abs m-auto" src={title} alt="" />
@@ -55,7 +56,7 @@ function LeaderBoard({
             potName="Beans Pot"
             potImg={beansPotImg}
             icon={beanIcon}
-            value={999999}
+            value={beanPotValue}
             rewards={tab1Rewards}
           />
           <CountryTabs country={country} setCountry={setCountry} mtop="3vw" />
@@ -70,53 +71,19 @@ function LeaderBoard({
             btnHeight="9vw"
             color="white"
           />
-          <div className="rank-section">
-            {arrayData?.length === 0 ? (
-              <p className="no-data">No Records Found</p>
-            ) : (
-              <div className="rank-section-inner">
-                <div className="top-winners d-flex jc-center al-start m-auto">
-                  {topWinners?.map(
-                    (
-                      {
-                        nickName,
-                        userScore,
-                        userLevel,
-                        actorLevel,
-                        portrait,
-                        userId,
-                      },
-                      index
-                    ) => {
-                      return (
-                        <div className="user-container p-rel" key={index}>
-                          <TopWinners
-                            userName={nickName}
-                            userScore={userScore}
-                            userAvatar={portrait}
-                            userId={userId}
-                            index={index}
-                            userLevel={userLevel}
-                            actorLevel={actorLevel}
-                            tab1={tab1}
-                          />
-                        </div>
-                      );
-                    }
-                  )}
-                </div>
-                <div
-                  ref={restBoard}
-                  className={
-                    active ? "rest-ranking" : "rest-ranking rest-ranking-max"
-                  }
-                  style={{ maxHeight: `${maxheight}` }}
-                >
-                  {restWinners &&
-                    restWinners?.map(
+          {isLoading ? (
+            <Loader />
+          ) : (
+            <div className="rank-section">
+              {arrayData?.count === 0 ? (
+                <p className="no-data">No Records Found</p>
+              ) : (
+                <div className="rank-section-inner">
+                  <div className="top-winners d-flex jc-center al-start m-auto">
+                    {topWinners?.map(
                       (
                         {
-                          nickName,
+                          nickname,
                           userScore,
                           userLevel,
                           actorLevel,
@@ -124,32 +91,71 @@ function LeaderBoard({
                           userId,
                         },
                         index
-                      ) => (
-                        <div key={index}>
-                          <RestWinners
-                            userName={nickName}
-                            userScore={userScore}
-                            userAvatar={portrait}
-                            index={index}
-                            userId={userId}
-                            listNumber={index + 2}
-                            userLevel={userLevel}
-                            actorLevel={actorLevel}
-                            tab1={tab1}
-                          />
-                        </div>
-                      )
+                      ) => {
+                        return (
+                          <div className="user-container p-rel" key={index}>
+                            <TopWinners
+                              userName={nickname}
+                              userScore={userScore}
+                              userAvatar={portrait}
+                              userId={userId}
+                              index={index}
+                              userLevel={userLevel}
+                              actorLevel={actorLevel}
+                              tab1={tab1}
+                              beanPotValue={beanPotValue ? beanPotValue : 0}
+                            />
+                          </div>
+                        );
+                      }
                     )}
+                  </div>
+                  <div
+                    ref={restBoard}
+                    className={
+                      active ? "rest-ranking" : "rest-ranking rest-ranking-max"
+                    }
+                    style={{ maxHeight: `${maxheight}` }}
+                  >
+                    {restWinners &&
+                      restWinners?.map(
+                        (
+                          {
+                            nickname,
+                            userScore,
+                            userLevel,
+                            actorLevel,
+                            portrait,
+                            userId,
+                          },
+                          index
+                        ) => (
+                          <div key={index}>
+                            <RestWinners
+                              userName={nickname}
+                              userScore={userScore}
+                              userAvatar={portrait}
+                              index={index}
+                              userId={userId}
+                              listNumber={index + 2}
+                              userLevel={userLevel}
+                              actorLevel={actorLevel}
+                              tab1={tab1}
+                            />
+                          </div>
+                        )
+                      )}
+                  </div>
                 </div>
-              </div>
-            )}
-            {arrayData?.length > 10 ? (
-              <SeeMore
-                active={active}
-                handleChangeActive={handleChangeActive}
-              />
-            ) : null}
-          </div>
+              )}
+              {arrayData?.count > 10 ? (
+                <SeeMore
+                  active={active}
+                  handleChangeActive={handleChangeActive}
+                />
+              ) : null}
+            </div>
+          )}
         </div>
       ) : (
         <div
@@ -161,7 +167,7 @@ function LeaderBoard({
         >
           <img className="title p-abs m-auto" src={title} alt="" />
           <div className="rank-section">
-            {arrayData?.length === 0 ? (
+            {arrayData?.count === 0 ? (
               <p className="no-data">No Records Found</p>
             ) : (
               <div className="rank-section-inner">
@@ -172,22 +178,23 @@ function LeaderBoard({
                   }
                   style={{ maxHeight: `${maxheight}`, marginTop: "28vw" }}
                 >
-                  {arrayData &&
-                    arrayData?.map(
+                  {restWinners &&
+                    restWinners?.map(
                       (
                         {
-                          nickName,
+                          nickname,
                           userScore,
                           userLevel,
                           actorLevel,
                           portrait,
                           userId,
+                          desc,
                         },
                         index
                       ) => (
                         <div key={index}>
                           <RestWinners
-                            userName={nickName}
+                            userName={nickname}
                             userScore={userScore}
                             userAvatar={portrait}
                             index={index}
@@ -195,6 +202,8 @@ function LeaderBoard({
                             listNumber={index + 1}
                             userLevel={userLevel}
                             actorLevel={actorLevel}
+                            desc={desc}
+                            tab2={tab2}
                           />
                         </div>
                       )
@@ -202,7 +211,7 @@ function LeaderBoard({
                 </div>
               </div>
             )}
-            {arrayData?.length > 10 ? (
+            {arrayData?.count > 10 ? (
               <SeeMore
                 active={active}
                 handleChangeActive={handleChangeActive}

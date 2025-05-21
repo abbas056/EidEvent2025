@@ -7,7 +7,7 @@ export const CarouselItem = ({ children }) => {
   return <div className="carousel-item">{children}</div>;
 };
 
-const RewardSlider = ({ children, eventGifting }) => {
+const RewardSlider = ({ children, tab1, rewButtonsBottom, rewButtonsTop }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const [highlightLeftArrow, setHighlightLeftArrow] = useState(false);
@@ -96,7 +96,16 @@ const RewardSlider = ({ children, eventGifting }) => {
         </div>
       </div>
 
-      <div className="indicators">
+      <div
+        className="indicators"
+        style={
+          tab1 || (rewButtonsTop?.btn2 && rewButtonsBottom?.daily)
+            ? { top: "36vw" }
+            : rewButtonsBottom?.overall
+            ? { top: "47vw" }
+            : { top: "40vw" }
+        }
+      >
         {React.Children.map(children, (child, index) => {
           return (
             <span

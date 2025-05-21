@@ -1,6 +1,10 @@
 import axios from "axios";
 import { unknown } from "../utils/images";
 import crossBtn from "../assets/crossbtn.png";
+import turkeyIcon from "../assets/Popup-icons/turkey-icon.png";
+import tunisiaIcon from "../assets/Popup-icons/tunisia-icon.png";
+import bahrainIcon from "../assets/Popup-icons/bahrain-icon.png";
+import egyptIcon from "../assets/Popup-icons/egypt-icon.png";
 
 export const overFlowHidden = () => {
   if (typeof window !== "undefined" && window.document) {
@@ -90,25 +94,19 @@ export const unsuccessAlert = (oops, msj) => [
     data: <>{msj}</>,
   },
 ];
-export const estBeans = (rank, lbButtons, beansPot, userScore) => {
+export const estBeans = (beansValue, country) => {
   let beans;
-  if (lbButtons.today) {
-    if (rank === 1) {
-      beans = Math.floor((beansPot * userScore) / 100);
-    } else if (rank === 2) {
-      beans = Math.floor((beansPot * userScore) / 100);
-    } else if (rank === 3) {
-      beans = Math.floor((beansPot * userScore) / 100);
-    }
+
+  if (country.Turkey) {
+    beans = Math.floor((beansValue * 10) / 100);
+  } else if (country.Tunisia) {
+    beans = Math.floor((beansValue * 20) / 100);
+  } else if (country.Bahrain) {
+    beans = Math.floor((beansValue * 30) / 100);
   } else {
-    if (rank === 1) {
-      beans = Math.floor((beansPot * userScore) / 100);
-    } else if (rank === 2) {
-      beans = Math.floor((beansPot * userScore) / 100);
-    } else if (rank === 3) {
-      beans = Math.floor((beansPot * userScore) / 100);
-    }
+    beans = Math.floor((beansValue * 40) / 100);
   }
+
   return beans;
 };
 export const dummyData = [
@@ -266,4 +264,42 @@ export const keys = {
       },
     ],
   },
+};
+export const countryIcon = (rank) => {
+  let icon;
+  if (rank === 1) {
+    icon = turkeyIcon;
+  } else if (rank === 2) {
+    icon = tunisiaIcon;
+  } else if (rank === 3) {
+    icon = bahrainIcon;
+  } else {
+    icon = egyptIcon;
+  }
+  return icon;
+};
+export const estCalculation = (beansValue, index, lbButtonsTop) => {
+  let beans;
+  if (lbButtonsTop.btn1) {
+    if (index === 1) {
+      beans = Math.floor((beansValue * 40) / 100);
+    } else if (index === 2) {
+      beans = Math.floor((beansValue * 30) / 100);
+    } else if (index === 3) {
+      beans = Math.floor((beansValue * 10) / 100);
+    } else if (index === 4) {
+      beans = Math.floor((beansValue * 10) / 100);
+    } else {
+      beans = Math.floor((beansValue * 10) / 100);
+    }
+  } else {
+    if (index === 1) {
+      beans = Math.floor((beansValue * 50) / 100);
+    } else if (index === 2) {
+      beans = Math.floor((beansValue * 30) / 100);
+    } else {
+      beans = Math.floor((beansValue * 20) / 100);
+    }
+  }
+  return beans;
 };

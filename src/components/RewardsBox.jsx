@@ -23,11 +23,16 @@ function RewardsBox({
             <img className="pot" src={potImg} alt="" />
             <div className="bean-num d-flex al-center jc-center gap-1">
               <img src={icon} alt="" />
-              <span>{value}</span>
+              <span>{value ? value : 0}</span>
             </div>
           </div>
           <div className="rewards">
-            <SliderItems tab1={tab1} rewards={rewards} />
+            <SliderItems
+              tab1={tab1}
+              rewards={rewards}
+              rewButtonsBottom={rewButtonsBottom}
+              rewButtonsTop={rewButtonsTop}
+            />
           </div>
         </div>
       ) : (
@@ -36,7 +41,10 @@ function RewardsBox({
           style={{ marginTop: "0" }}
         >
           <div className="rewards" style={{ width: "100%", height: "45vw" }}>
-            <SliderItems rewards={rewards} />
+            <SliderItems
+              rewards={rewards}
+              rewButtonsBottom={rewButtonsBottom}
+            />
           </div>
           {rewButtonsBottom.overall ? null : (
             <div

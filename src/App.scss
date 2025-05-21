@@ -38,13 +38,13 @@ $standardWidth: 750;
     box-sizing: border-box;
     display: block;
     position: absolute;
-    width: 7vw;
-    height: 7vw;
+    width: 10vw;
+    height: 10vw;
     margin: 8px;
     border: 3px solid #fff;
     border-radius: 50%;
     animation: loader 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: #fff transparent transparent transparent;
+    border-color: #c86b01 transparent transparent transparent;
     &:nth-child(1) {
       animation-delay: -0.45s;
     }
@@ -132,9 +132,12 @@ $standardWidth: 750;
     z-index: 2;
   }
   .eventGiftingBtn {
-    right: 1vw;
-    top: 65vw;
+    right: 0vw;
+    top: 68vw;
     z-index: 3;
+    img {
+      height: 9vw;
+    }
   }
   .detailsBtn {
     left: 1vw;
@@ -264,76 +267,83 @@ $standardWidth: 750;
   }
 }
 .rewards-history {
-  // background-image: url(./assets/Popup/Rewardshistorypopupbg.png);
+  background-image: url(./assets/popups/Records/bg.png);
   background-size: 100% 100%;
-  width: 90%;
-  height: 80vw;
-  display: flex;
-  justify-content: center;
-  padding: 12vw 0 8vw 0;
+  width: 98%;
+  height: 130vw;
   .head {
-    width: 80%;
-    margin: auto;
+    width: 65%;
     left: 0;
     right: 0;
-    top: -6vw;
+    top: 10vw;
   }
   .inner-content {
-    width: 98%;
-    margin: 0 auto;
+    width: 80%;
+    margin-top: 30vw;
+    height: 80vw;
     .table {
-      width: 90%;
+      width: 95%;
       overflow: hidden;
-      font-size: 3.5vw;
-      font-weight: bold;
       color: white;
-      margin-bottom: 2vw;
       .heading {
-        width: 90%;
-        height: 10vw;
-        margin: 0 auto;
-        color: #8203c6;
         font-size: 3vw;
-        border-radius: 10vw;
-        background-color: #fef6eb;
-      }
-      .table-data {
-        height: 70vw;
-        padding: 0 2vw;
-        gap: 1vw;
-        overflow-x: hidden;
-      }
-      .table-data-max {
-        height: 70vw;
-        overflow-y: scroll;
-        padding: 0 2vw;
-        gap: 1vw;
-        overflow-x: hidden;
-      }
-      .table-data-max::-webkit-scrollbar {
-        border-radius: calcView(99);
-        background: #270c01 !important;
-        width: calcView(10) !important;
-        height: 1.5vw;
-      }
-      .table-data-max::-webkit-scrollbar-thumb {
-        border-radius: calcView(99) !important;
-        background: #ad2be2 !important;
-        background-clip: content-box !important;
-      }
-      .rews {
-        .rew-img {
-          // background-image: url(./assets/Popup/Rewardsbackbg.png);
-          background-size: 100% 100%;
-          width: 9vw;
-          height: 9vw;
-          img {
-            width: 7vw;
+        width: 98%;
+        border-collapse: collapse;
+        div {
+          background-color: #0f3f60;
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid white;
+          height: 8vw;
+          &:first-child {
+            border-top-left-radius: 3vw;
+          }
+          &:last-child {
+            border-top-right-radius: 3vw;
           }
         }
-        .desc {
-          font-size: 2vw;
-          font-weight: bold;
+      }
+      .body {
+        color: #382204;
+        width: 98%;
+        font-size: 2vw;
+        .table-data {
+          height: 65vw;
+          overflow-x: hidden;
+          width: 100%;
+        }
+        .table-data-max {
+          height: 65vw;
+          width: 100%;
+          overflow-y: scroll;
+          overflow-x: hidden;
+        }
+        // .table-data-max::-webkit-scrollbar {
+        //   border-radius: calcView(99);
+        //   background: #270c01 !important;
+        //   width: calcView(5) !important;
+        //   height: 1.5vw;
+        // }
+        // .table-data-max::-webkit-scrollbar-thumb {
+        //   border-radius: calcView(99) !important;
+        //   background: #ad2be2 !important;
+        //   background-clip: content-box !important;
+        // }
+        .rews {
+          .rew-img {
+            // background-image: url(./assets/Popup/Rewardsbackbg.png);
+            background-size: 100% 100%;
+            width: 11vw;
+            height: 9vw;
+            img {
+              width: 9vw;
+            }
+          }
+          .desc {
+            font-size: 1.8vw;
+          }
         }
       }
     }
@@ -348,18 +358,18 @@ $standardWidth: 750;
     }
   }
   .see-btn {
-    background-color: #2e0738;
-    width: 20vw;
-    height: 4vw;
+    background-color: #f5a237;
+    width: 18vw;
+    height: 3vw;
     margin: auto;
     padding: 2vw;
     margin-top: 5vw;
-    border: 1.5px solid #e1a72e;
+    border: 1.5px solid #f7fefb;
     border-radius: 5vw;
     button {
       font-size: 3.5vw;
       width: 100%;
-      color: white;
+      color: #07283f;
       margin: 0 auto;
       height: 100%;
     }
@@ -483,7 +493,7 @@ $standardWidth: 750;
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0vw;
+  bottom: -2vw;
   button {
     background-image: url("./assets/SeeMoreBase.png");
     background-size: 100% 100%;
@@ -492,6 +502,7 @@ $standardWidth: 750;
     font-size: 4vw;
     color: white;
     font-family: tangoSansItalic;
+    text-shadow: 1px 1px black;
   }
 }
 .leaderboard {
@@ -536,6 +547,7 @@ $standardWidth: 750;
                 z-index: 1;
                 left: 0;
                 right: 0;
+                border-radius: 50%;
               }
             }
             .bottom-data {
@@ -545,10 +557,23 @@ $standardWidth: 750;
                 font-size: 2.8vw;
               }
               .userScore {
-                font-size: 2.2vw;
+                font-size: 2.8vw;
                 img {
                   width: 4vw;
                   height: 4vw;
+                }
+              }
+              .est-score {
+                font-size: 3vw;
+                bottom: 1vw;
+                color: #864e02;
+                img {
+                  background-color: #048396;
+                  border: 1px solid white;
+                  border-radius: 50%;
+                  padding: 0.4vw;
+                  width: 3vw;
+                  height: 3vw;
                 }
               }
             }
@@ -583,9 +608,9 @@ $standardWidth: 750;
           .rank-user-image {
             border-radius: 50%;
             position: absolute;
-            width: 11vw;
-            top: 1vw;
-            left: 7vw;
+            width: 10vw;
+            top: 2vw;
+            left: 7.5vw;
             z-index: 1;
           }
           .rank-border-image {
@@ -638,11 +663,11 @@ $standardWidth: 750;
 .footer {
   width: 80%;
   height: 15vw;
-  font-size: 4vw;
-  font-size: 6vw;
-  font-weight: bold;
+  font-size: 5vw;
+  font-weight: bolder;
   color: white;
-  -webkit-text-stroke: 0.5px #6c2902;
+  -webkit-text-stroke: 0.2px #6c2902;
+  text-shadow: 0.5px 0.5px 1px #6c2902;
 }
 .eid-game {
   background-image: url("./assets/Gamebg.png");
@@ -658,15 +683,13 @@ $standardWidth: 750;
         width: 100%;
         height: 20vw;
         button {
-          width: 23%;
+          width: 25%;
+          height: 16vw;
           display: flex;
-          align-items: center;
+          align-items: end;
           justify-content: center;
           font-size: 3vw;
           font-family: tangoSansItalic;
-          img {
-            width: 75%;
-          }
         }
       }
       .bar-bottom {
@@ -677,7 +700,7 @@ $standardWidth: 750;
         font-size: 3vw;
         color: #5d1d02;
         font-weight: 600;
-        margin-top: -1vw;
+        margin-top: -0.3vw;
         span {
           width: 25%;
         }
@@ -687,11 +710,67 @@ $standardWidth: 750;
   .country-images {
     margin-top: 3vw;
     width: 81%;
-    img {
+    .images {
+      transition: none !important;
       width: 95%;
       top: 12vw;
       left: 0;
       right: 0;
+    }
+    .mascot {
+      width: 100%;
+      height: 100%;
+      top: 0;
+      img {
+        position: absolute;
+      }
+      .mascot-turkey {
+        width: 12vw;
+        right: 5vw;
+        bottom: 12vw;
+      }
+      .mascot-tunisia {
+        left: 10vw;
+        bottom: 12vw;
+        width: 10vw;
+      }
+      .mascot-bahrain {
+        right: 10vw;
+        bottom: 11vw;
+        width: 18vw;
+      }
+      .mascot-egypt {
+        width: 10vw;
+        right: 8vw;
+        bottom: 14vw;
+      }
+      .animation-turkey {
+        width: 70vw;
+        right: 2vw;
+        bottom: 4vw;
+      }
+      .animation-tunisia {
+        left: 2.5vw;
+        bottom: 6vw;
+        width: 60vw;
+      }
+      .animation-bahrain {
+        right: 2.5vw;
+        bottom: 5vw;
+        width: 60vw;
+      }
+      .animation-egypt {
+        width: 60vw;
+        right: 2.5vw;
+        bottom: 7vw;
+      }
+      .key-found {
+        width: 60vw;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        top: 5vw;
+      }
     }
   }
   .button-section {
@@ -744,22 +823,20 @@ $standardWidth: 750;
       margin-bottom: 1vw;
     }
     .treasure-box {
-      background-image: url(./assets/ClosedChest.png);
       background-size: 100% 100%;
       width: 100%;
-      height: 75vw;
       .keys {
         width: 75%;
-        top: 32vw;
         .value {
           background-color: #efdf07;
           padding: 1vw;
           border-radius: 50%;
-          width: 2vw;
-          height: 2vw;
+          width: 3vw;
+          height: 3vw;
           color: #763400;
-          font-size: 2.5vw;
+          font-size: 2vw;
           z-index: 1;
+          top: 0vw;
         }
         img {
           width: 11vw;
@@ -771,6 +848,11 @@ $standardWidth: 750;
         img {
           width: 25vw;
         }
+      }
+      .hand {
+        bottom: 3vw;
+        right: 27vw;
+        width: 10vw;
       }
     }
     .explore-points {
@@ -805,94 +887,82 @@ $standardWidth: 750;
     margin-left: -3vw;
   }
 }
-// .game-popup {
-//   width: 100%;
-//   .success {
-//     background-image: url(./assets/Popup/Congopopupbg.png);
-//     background-size: 100% 100%;
-//     width: 95%;
-//     margin: 0 auto;
-//     padding: 3vw 0;
-//     .head {
-//       width: 45%;
-//       margin: 0 auto;
-//       top: 29vw;
-//     }
-//   }
-//   .unsuccess {
-//     background-image: url(./assets/unsuccessbg.png);
-//     background-size: 100% 100%;
-//     width: 90%;
-//     margin: 0 auto;
-//     padding: 3vw 0;
-//     .head {
-//       width: 28%;
-//       margin: 0 auto;
-//       top: 13vw;
-//     }
-//   }
-
-//   .content {
-//     width: 80%;
-//     .body-text {
-//       color: #a11b2e;
-//       width: 90%;
-//       font-weight: bold;
-//       .rews-box {
-//         width: 70%;
-//         max-height: 25vw;
-//         flex-wrap: wrap;
-//         gap: 1vw;
-//       }
-//       .rews-box-max {
-//         width: 90%;
-//         max-height: 22vw;
-//         flex-wrap: wrap;
-//         gap: 2vw;
-//         overflow-y: scroll;
-//       }
-//       .name {
-//         font-size: 2.2vw;
-//         line-height: 2vw;
-//         color: #553a07;
-//       }
-//       .img-box {
-//         background-image: url(./assets/Popup/Rewardsbackbg.png);
-//         background-size: 100% 100%;
-//         width: 14vw;
-//         height: 14vw;
-//         img {
-//           width: 9vw;
-//         }
-//       }
-//       .rews-box-max::-webkit-scrollbar {
-//         border-radius: calcView(99);
-//         background: #270c01 !important;
-//         width: calcView(10) !important;
-//         height: 1.5vw;
-//       }
-//       .rews-box-max::-webkit-scrollbar-thumb {
-//         border-radius: calcView(99) !important;
-//         background: #ad2be2 !important;
-//         background-clip: content-box !important;
-//       }
-//       img {
-//         width: 15vw;
-//       }
-//       .rewards-box {
-//         margin-top: 20vw;
-//       }
-//     }
-//   }
-//   .modal-close {
-//     bottom: -15vw;
-//     right: 0;
-//     left: 0;
-//     img {
-//       width: 12vw;
-//     }
-//   }
-// }
+.game-popup {
+  width: 100%;
+  .success {
+    background-image: url(./assets/small-bg.png);
+    background-size: 100% 100%;
+    width: 90%;
+    height: 105vw;
+    margin: 0 auto;
+    .head {
+      width: 70%;
+      margin: 0 auto;
+      top: 5vw;
+    }
+  }
+  .content {
+    width: 80%;
+    .body-text {
+      color: white;
+      width: 90%;
+      font-size: 4vw;
+      margin-top: 20vw;
+      .iconn {
+        width: 4vw;
+        vertical-align: middle;
+      }
+      .rews-box {
+        width: 90%;
+        max-height: 30vw;
+        flex-wrap: wrap;
+      }
+      .rews-box-max {
+        width: 90%;
+        max-height: 28vw;
+        flex-wrap: wrap;
+        gap: 2vw;
+        overflow-y: scroll;
+      }
+      .name {
+        font-size: 2.2vw;
+      }
+      .img-box {
+        background-image: url(./assets/gifts-bg.png);
+        background-size: 100% 100%;
+        width: 16vw;
+        height: 20vw;
+        img {
+          width: 15vw;
+        }
+      }
+      .rews-box-max::-webkit-scrollbar {
+        border-radius: calcView(99);
+        background: #270c01 !important;
+        width: calcView(10) !important;
+        height: 1.5vw;
+      }
+      .rews-box-max::-webkit-scrollbar-thumb {
+        border-radius: calcView(99) !important;
+        background: #ad2be2 !important;
+        background-clip: content-box !important;
+      }
+      img {
+        width: 15vw;
+      }
+      .rewards-box {
+        margin-top: 20vw;
+      }
+    }
+  }
+  .modal-close {
+    top: -15vw;
+    right: 2vw;
+    img {
+      width: 12vw;
+    }
+  }
+}
 .btn-up {
   width: 10vw;
   position: fixed;
@@ -983,6 +1053,7 @@ $standardWidth: 750;
               font-size: 3.2vw;
               color: #a7390a;
               font-family: tangoSans;
+              font-weight: bold;
             }
             .rewardImg {
               width: 100%;
@@ -1015,7 +1086,6 @@ $standardWidth: 750;
           position: absolute;
           left: 0;
           right: 0;
-          top: 36vw;
           span {
             border-radius: 50%;
             height: 1.6vw;
@@ -1070,13 +1140,19 @@ $standardWidth: 750;
   background-image: url("./assets/TalentGameBg.png");
   background-size: 100% 100%;
   width: 100%;
-  height: 158vw;
+  height: 160vw;
   margin-top: -12vw;
   .moon-animation {
-    background-color: #519ec8;
     width: 80%;
-    height: 70vw;
-    margin-top: 30vw;
+    height: 80vw;
+    margin-top: 27vw;
+    .svga {
+      width: 100%;
+      height: 78%;
+      overflow: hidden;
+      position: absolute;
+      top: 0vw;
+    }
   }
   .game-buttons {
     .speed {
@@ -1084,7 +1160,7 @@ $standardWidth: 750;
         background-image: url("./assets/x1Base.png");
         background-size: 100% 100%;
         width: 12vw;
-        height: 7vw;
+        height: 6vw;
         color: white;
         font-family: tangoSans;
         font-size: 3vw;
@@ -1103,7 +1179,7 @@ $standardWidth: 750;
 .details-popup {
   background-size: 100% 100%;
   width: 95%;
-  height: 140vw;
+  height: 120vw;
   padding: 15vw 0 10vw 0;
   color: white;
   .title {
@@ -1117,7 +1193,7 @@ $standardWidth: 750;
     width: 75%;
     margin-top: 13vw;
     .head {
-      font-size: 2.5vw;
+      font-size: 2vw;
       color: white;
 
       div {
@@ -1139,20 +1215,17 @@ $standardWidth: 750;
     }
 
     .body {
-      max-height: 115vw;
+      max-height: 95vw;
       overflow-y: scroll;
       display: flex;
       flex-direction: column;
       color: #3e2505;
       .row {
-        display: flex;
-        width: 100%;
-        align-items: stretch;
         .box {
           background-color: #f5a237;
           border: 1px solid white;
           padding: 2vw 0;
-          font-size: 2.5vw;
+          font-size: 2vw;
         }
 
         .rewards-container {
@@ -1181,7 +1254,6 @@ $standardWidth: 750;
   }
 }
 .event-gifting {
-  background-image: url(./assets/popups/Event-Gifting/bg.png);
   background-size: 100% 100%;
   width: 98%;
   padding: 10vw 0 7vw 0;
@@ -1315,8 +1387,10 @@ $standardWidth: 750;
                 background-size: 100% 100%;
                 width: 19vw;
                 height: 8vw;
-                font-size: 3.2vw;
+                font-size: 3vw;
                 color: #a7390a;
+                padding: 1vw 3vw;
+                font-weight: bold;
               }
               .rewardImg {
                 width: 100%;
@@ -1349,7 +1423,6 @@ $standardWidth: 750;
             position: absolute;
             left: 0;
             right: 0;
-            top: 39vw;
             span {
               border-radius: 50%;
               height: 1.6vw;
@@ -1383,20 +1456,23 @@ $standardWidth: 750;
             background-size: 100% 100%;
             width: 33%;
             height: 40vw;
+            font-size: 2vw;
           }
           &:nth-child(2) {
             background-image: url("./assets/popups/Event-Gifting/2ndbase.png");
             background-size: 100% 100%;
-            width: 28%;
+            width: 30%;
             height: 32vw;
             order: 1;
+            font-size: 2vw;
           }
           &:nth-child(3) {
             background-image: url("./assets/popups/Event-Gifting/3rdbase.png");
             background-size: 100% 100%;
-            width: 28%;
+            width: 30%;
             height: 32vw;
             order: 3;
+            font-size: 2vw;
           }
           .innerData {
             .first-user {
@@ -1411,19 +1487,33 @@ $standardWidth: 750;
                 z-index: 1;
                 left: 0;
                 right: 0;
+                border-radius: 50%;
               }
             }
             .bottom-data {
-              margin-top: -6vw;
+              gap: 0.5vw;
+              margin-top: -5vw;
               color: #519ec8;
               .username {
                 font-size: 2.5vw;
+                font-weight: bold;
               }
               .userScore {
-                font-size: 1.8vw;
+                gap: 0.5vw;
+                font-weight: bold;
                 img {
-                  width: 4vw;
-                  height: 4vw;
+                  width: 3vw;
+                  height: 3vw;
+                }
+              }
+
+              .est-score {
+                font-size: 1.6vw;
+                bottom: -4.5vw;
+                color: #29322e;
+                img {
+                  width: 2vw;
+                  height: 2vw;
                 }
               }
             }
@@ -1452,6 +1542,7 @@ $standardWidth: 750;
           align-items: center;
           justify-content: space-between;
           padding: 0 3vw;
+          gap: 1vw;
           .rank-id {
             width: 5vw;
             font-size: 3vw;
@@ -1461,9 +1552,9 @@ $standardWidth: 750;
           .rank-user-image {
             border-radius: 50%;
             position: absolute;
-            width: 11vw;
-            top: 1vw;
-            left: 7vw;
+            width: 10vw;
+            top: 2vw;
+            left: 7.5vw;
             z-index: 1;
           }
           .rank-border-image {
@@ -1487,11 +1578,21 @@ $standardWidth: 750;
             cursor: none;
           }
           .userScore {
-            font-size: 2.8vw;
+            gap: 0.5vw;
+            font-size: 2.5vw;
             width: 25vw;
             img {
-              width: 5vw;
-              height: 5vw;
+              width: 4vw;
+              height: 4vw;
+            }
+          }
+          .est-score {
+            gap: 0.5vw;
+            font-size: 2.2vw;
+            color: white;
+            img {
+              width: 4vw;
+              height: 4vw;
             }
           }
         }
@@ -1516,4 +1617,35 @@ $standardWidth: 750;
     right: 7vw;
     top: 2vw;
   }
+}
+#extraContent {
+  height: 0vw;
+  width: 0vw;
+  position: absolute;
+  z-index: -99;
+  background: url("./assets/tab1GameAnimations/Turkey.gif"),
+    url("./assets/tab1GameAnimations/Bahrain.gif"),
+    url("./assets/tab1GameAnimations/Tunisia.gif"),
+    url("./assets/tab1GameAnimations//Egypt.gif"),
+    url("./assets/tab1GameAnimations/keysFound/Key-of-Turkey.gif"),
+    url("./assets/tab1GameAnimations/keysFound/Key-of-Bahrain.gif"),
+    url("./assets/tab1GameAnimations/keysFound/Key-of-Tunisia.gif"),
+    url("./assets/tab1GameAnimations/keysFound/Key-of-Egypt.gif"),
+    url("./assets/moon-game/game.svga"), url("./assets/OpenChest.png"),
+    url("./assets/ClosedChest.png");
+  visibility: hidden;
+  top: 0px;
+}
+.toast {
+  width: 70%;
+  display: block;
+  white-space: pre;
+  padding: 6vw 4vw;
+  position: fixed;
+  top: 40%;
+  border-radius: 2vw;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999999;
+  background-color: #a40f0fe0;
 }

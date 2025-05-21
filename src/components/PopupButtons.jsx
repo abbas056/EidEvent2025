@@ -41,7 +41,7 @@ function PopupButtons({
         </button>
         <button
           disabled={disable}
-          className="p-abs eventGiftingBtn"
+          className="p-fix eventGiftingBtn"
           onClick={() => popupSwitch("eventGifting")}
         >
           <img src={eventGiftingBtn} alt="" />
@@ -64,7 +64,9 @@ function PopupButtons({
         className="overlay"
         style={{ visibility: popup.eventGifting ? "visible" : "hidden" }}
       >
-        {popup.eventGifting ? <EventGifting close={close} /> : null}
+        {popup.eventGifting ? (
+          <EventGifting close={close} eventGifting={popup.eventGifting} />
+        ) : null}
       </div>
       <div
         className="overlay"
