@@ -13,10 +13,10 @@ import {
   unsuccessAlert,
 } from "../../js/helpers";
 import { ApiContext } from "../../services/Api";
-import { baserUrl } from "../../js/baserUrl";
 import Svga from "./../Svga";
 import playanimation from "../../assets/moon-game/game.svga";
 import talentPointsIconIcon from "../../assets/MyTalentPointsIcon.png";
+import { baseUrl } from "../../js/baserUrl";
 
 function LunarGame({ talentPoints }) {
   const moonAnimation = useRef(0);
@@ -30,7 +30,7 @@ function LunarGame({ talentPoints }) {
   const playGame = () => {
     setDisable(true);
     callDartApi(
-      `${baserUrl}api/activity/eidAl/lunar?playCount=${speed}`,
+      `${baseUrl}api/activity/eidAl/lunar?playCount=${speed}`,
       userId,
       userToken
     )

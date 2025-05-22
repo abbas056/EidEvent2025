@@ -1,7 +1,7 @@
 import { gembag } from "../utils/images";
-import { baserUrl } from "./baserUrl";
 import gemsbag from "../assets/popups/Event-Gifting/gems-bag.png";
 import gemspot from "../assets/popups/Event-Gifting/gems-pot.png";
+import { baseUrl } from "./baserUrl";
 
 export const tab1Rewards = [
   {
@@ -9,28 +9,28 @@ export const tab1Rewards = [
     rank: "1",
     country: "Turkey",
     desc: <span>10% of the beans pot</span>,
-    frame: [{ pic: `${baserUrl}streamkar/rewards/beanbag.png` }],
+    frame: [{ pic: `${baseUrl}streamkar/rewards/beanbag.png` }],
   },
   {
     id: 2,
     rank: "1",
     country: "Tunisia",
     desc: <span>20% of the beans pot</span>,
-    frame: [{ pic: `${baserUrl}streamkar/rewards/beanbag.png` }],
+    frame: [{ pic: `${baseUrl}streamkar/rewards/beanbag.png` }],
   },
   {
     id: 3,
     rank: "1",
     country: "Bahrain",
     desc: <span>30% of the beans pot</span>,
-    frame: [{ pic: `${baserUrl}streamkar/rewards/beanbag.png` }],
+    frame: [{ pic: `${baseUrl}streamkar/rewards/beanbag.png` }],
   },
   {
     id: 4,
     rank: "1",
     country: "Egypt",
     desc: <span>40% of the beans pot</span>,
-    frame: [{ pic: `${baserUrl}streamkar/rewards/beanbag.png` }],
+    frame: [{ pic: `${baseUrl}streamkar/rewards/beanbag.png` }],
   },
 ];
 export const talentsOverallRewards = [
@@ -46,8 +46,8 @@ export const talentsOverallRewards = [
     ),
     frame: [
       { pic: gemsbag },
-      { pic: `${baserUrl}streamkar/rewards/eidDelightFrame.png` },
-      { pic: `${baserUrl}streamkar/rewards/noRew.png` },
+      { pic: `${baseUrl}streamkar/rewards/eidDelightFrame.png` },
+      { pic: `${baseUrl}streamkar/rewards/noRew.png` },
     ],
   },
   {
@@ -62,8 +62,8 @@ export const talentsOverallRewards = [
     ),
     frame: [
       { pic: gemsbag },
-      { pic: `${baserUrl}streamkar/rewards/eidDelightFrame.png` },
-      { pic: `${baserUrl}streamkar/rewards/noRew.png` },
+      { pic: `${baseUrl}streamkar/rewards/eidDelightFrame.png` },
+      { pic: `${baseUrl}streamkar/rewards/noRew.png` },
     ],
   },
   {
@@ -78,8 +78,8 @@ export const talentsOverallRewards = [
     ),
     frame: [
       { pic: gemsbag },
-      { pic: `${baserUrl}streamkar/rewards/eidDelightFrame.png` },
-      { pic: `${baserUrl}streamkar/rewards/noRew.png` },
+      { pic: `${baseUrl}streamkar/rewards/eidDelightFrame.png` },
+      { pic: `${baseUrl}streamkar/rewards/noRew.png` },
     ],
   },
 ];
@@ -89,7 +89,7 @@ export const talentsDailyRewards = [
     desc: <span>40% of the Gems Pot + Blessify frame (New) x3 days</span>,
     frame: [
       { pic: gemspot },
-      { pic: `${baserUrl}streamkar/rewards/blessifyFrame.png` },
+      { pic: `${baseUrl}streamkar/rewards/blessifyFrame.png` },
     ],
   },
   {
@@ -97,7 +97,7 @@ export const talentsDailyRewards = [
     desc: <span>30% of the Gems Pot + Blessify frame (New) x2 days</span>,
     frame: [
       { pic: gemspot },
-      { pic: `${baserUrl}streamkar/rewards/blessifyFrame.png` },
+      { pic: `${baseUrl}streamkar/rewards/blessifyFrame.png` },
     ],
   },
   {
@@ -105,7 +105,7 @@ export const talentsDailyRewards = [
     desc: <span>10% of the Gems Pot + Blessify frame (New) x1 day </span>,
     frame: [
       { pic: gemspot },
-      { pic: `${baserUrl}streamkar/rewards/blessifyFrame.png` },
+      { pic: `${baseUrl}streamkar/rewards/blessifyFrame.png` },
     ],
   },
   {
@@ -113,7 +113,7 @@ export const talentsDailyRewards = [
     desc: <span>10% of the Gems Pot + Blessify frame (New) x1 days </span>,
     frame: [
       { pic: gemspot },
-      { pic: `${baserUrl}streamkar/rewards/blessifyFrame.png` },
+      { pic: `${baseUrl}streamkar/rewards/blessifyFrame.png` },
     ],
   },
   {
@@ -121,33 +121,33 @@ export const talentsDailyRewards = [
     desc: <span>10% of the Gems Pot + Blessify frame (New) x1 days </span>,
     frame: [
       { pic: gemspot },
-      { pic: `${baserUrl}streamkar/rewards/blessifyFrame.png` },
+      { pic: `${baseUrl}streamkar/rewards/blessifyFrame.png` },
     ],
   },
   {
     id: 6,
     desc: <span>Blessify frame (New) x1 day </span>,
-    frame: [{ pic: `${baserUrl}streamkar/rewards/blessifyFrame.png` }],
+    frame: [{ pic: `${baseUrl}streamkar/rewards/blessifyFrame.png` }],
   },
   {
     id: 7,
     desc: <span>Blessify frame (New) x1 day </span>,
-    frame: [{ pic: `${baserUrl}streamkar/rewards/blessifyFrame.png` }],
+    frame: [{ pic: `${baseUrl}streamkar/rewards/blessifyFrame.png` }],
   },
   {
     id: 8,
     desc: <span>Blessify frame (New) x1 day </span>,
-    frame: [{ pic: `${baserUrl}streamkar/rewards/blessifyFrame.png` }],
+    frame: [{ pic: `${baseUrl}streamkar/rewards/blessifyFrame.png` }],
   },
   {
     id: 9,
     desc: <span>Blessify frame (New) x1 day </span>,
-    frame: [{ pic: `${baserUrl}streamkar/rewards/blessifyFrame.png` }],
+    frame: [{ pic: `${baseUrl}streamkar/rewards/blessifyFrame.png` }],
   },
   {
     id: 10,
     desc: <span>Blessify frame (New) x1 day </span>,
-    frame: [{ pic: `${baserUrl}streamkar/rewards/noRew.png` }],
+    frame: [{ pic: `${baseUrl}streamkar/rewards/blessifyFrame.png` }],
   },
 ];
 export const usersOverallRewards = [
@@ -161,9 +161,9 @@ export const usersOverallRewards = [
       </span>
     ),
     frame: [
-      { pic: `${baserUrl}streamkar/rewards/beanbag.png` },
-      { pic: `${baserUrl}streamkar/rewards/blessifyFrame.png` },
-      { pic: `${baserUrl}streamkar/rewards/noRew.png` },
+      { pic: `${baseUrl}streamkar/rewards/beanbag.png` },
+      { pic: `${baseUrl}streamkar/rewards/blessifyFrame.png` },
+      { pic: `${baseUrl}streamkar/rewards/noRew.png` },
     ],
   },
   {
@@ -176,9 +176,9 @@ export const usersOverallRewards = [
       </span>
     ),
     frame: [
-      { pic: `${baserUrl}streamkar/rewards/beanbag.png` },
-      { pic: `${baserUrl}streamkar/rewards/blessifyFrame.png` },
-      { pic: `${baserUrl}streamkar/rewards/noRew.png` },
+      { pic: `${baseUrl}streamkar/rewards/beanbag.png` },
+      { pic: `${baseUrl}streamkar/rewards/blessifyFrame.png` },
+      { pic: `${baseUrl}streamkar/rewards/noRew.png` },
     ],
   },
   {
@@ -191,9 +191,9 @@ export const usersOverallRewards = [
       </span>
     ),
     frame: [
-      { pic: `${baserUrl}streamkar/rewards/beanbag.png` },
-      { pic: `${baserUrl}streamkar/rewards/blessifyFrame.png` },
-      { pic: `${baserUrl}streamkar/rewards/noRew.png` },
+      { pic: `${baseUrl}streamkar/rewards/beanbag.png` },
+      { pic: `${baseUrl}streamkar/rewards/blessifyFrame.png` },
+      { pic: `${baseUrl}streamkar/rewards/noRew.png` },
     ],
   },
 ];
@@ -201,41 +201,41 @@ export const usersDailyRewards = [
   {
     id: 1,
     desc: <span>50% of the beans pot</span>,
-    frame: [{ pic: `${baserUrl}streamkar/rewards/beanbag.png` }],
+    frame: [{ pic: `${baseUrl}streamkar/rewards/beanbag.png` }],
   },
   {
     id: 2,
     desc: <span>30% of the beans pot</span>,
-    frame: [{ pic: `${baserUrl}streamkar/rewards/beanbag.png` }],
+    frame: [{ pic: `${baseUrl}streamkar/rewards/beanbag.png` }],
   },
   {
     id: 3,
     desc: <span>20% of the beans pot</span>,
-    frame: [{ pic: `${baserUrl}streamkar/rewards/beanbag.png` }],
+    frame: [{ pic: `${baseUrl}streamkar/rewards/beanbag.png` }],
   },
 ];
 export const eventGifts = [
   {
     id: 1,
-    img: `${baserUrl}streamkar/gifts/40001673.png`,
+    img: `${baseUrl}streamkar/gifts/40001673.png`,
     name: "Eid Mandi",
     cost: "50k",
   },
   {
     id: 2,
-    img: `${baserUrl}streamkar/gifts/40011786.png`,
+    img: `${baseUrl}streamkar/gifts/40011786.png`,
     name: "Champions",
     cost: "30k",
   },
   {
     id: 3,
-    img: `${baserUrl}streamkar/gifts/40001653.png`,
+    img: `${baseUrl}streamkar/gifts/40001653.png`,
     name: "Eid Mubarak",
     cost: "25k",
   },
   {
     id: 4,
-    img: `${baserUrl}streamkar/gifts/40001330.png`,
+    img: `${baseUrl}streamkar/gifts/40001330.png`,
     name: "Money Rain",
     cost: "5k",
   },
@@ -249,8 +249,8 @@ export var guideContent = {
           <span className="c-yellow">Eidi Points</span>
         </div>
         <div>
-          1 bean of event gift sent = 1{" "}
-          <span className="c-yellow">Eidi Points</span>
+          1 bean of event gift sent ={" "}
+          <span className="c-yellow">1 Eidi Points</span>
         </div>
         <div>With these points, you will be able to play this event.</div>
       </>
@@ -271,7 +271,7 @@ export var guideContent = {
         <li className="c-yellow">You can only select 1 Country at a time.</li>
         <li>
           An “Explore” button is displayed on the webpage along with text input
-          box with default value“1”and maximum value“999”.
+          box with default value “1” and maximum value “999”.
         </li>
         <li className="c-yellow">
           “Eidi Points” required for each country/location are different.
@@ -416,8 +416,8 @@ export var guideContent = {
           <span className="c-yellow">Eidi Points.</span>
         </div>
         <div>
-          1 bean of event gift sent = 1{" "}
-          <span className="c-yellow">Eidi Points.</span>
+          1 bean of event gift sent ={" "}
+          <span className="c-yellow">1 Eidi Points.</span>
         </div>
         <div>In points k sath, aap yeh event khel sakein gy.</div>
       </>
@@ -576,23 +576,23 @@ export const tab1Details = {
       explorePoints: "1",
       rewards: [
         {
-          pic: `${baserUrl}streamkar/rewards/eidMandiRoomSkin.png`,
+          pic: `${baseUrl}streamkar/rewards/eidMandiRoomSkin.png`,
           text: "Eid Mandi room skin x1 day",
         },
         {
-          pic: `${baserUrl}streamkar/rewards/unicornFrame.png`,
+          pic: `${baseUrl}streamkar/rewards/unicornFrame.png`,
           text: "Unicorn frame x1 Day",
         },
         {
-          pic: `${baserUrl}streamkar/rewards/beanbag.png`,
+          pic: `${baseUrl}streamkar/rewards/beanbag.png`,
           text: "500 Beans",
         },
         {
-          pic: `${baserUrl}streamkar/rewards/spaceship.png`,
+          pic: `${baseUrl}streamkar/rewards/spaceship.png`,
           text: "Spaceship entrance x1 day",
         },
         {
-          pic: `${baserUrl}streamkar/rewards/blessifyFrame.png`,
+          pic: `${baseUrl}streamkar/rewards/blessifyFrame.png`,
           text: "Blessify frame (New) x1 day",
         },
       ],
@@ -605,23 +605,23 @@ export const tab1Details = {
       explorePoints: "2",
       rewards: [
         {
-          pic: `${baserUrl}streamkar/rewards/monarchProfileFrame.png`,
+          pic: `${baseUrl}streamkar/rewards/monarchProfileFrame.png`,
           text: "Monarch frame x1 day",
         },
         {
-          pic: `${baserUrl}streamkar/rewards/subzeroSkin.png`,
+          pic: `${baseUrl}streamkar/rewards/subzeroSkin.png`,
           text: "Subzero room skin x1 day",
         },
         {
-          pic: `${baserUrl}streamkar/rewards/beanbag.png`,
+          pic: `${baseUrl}streamkar/rewards/beanbag.png`,
           text: "750 Beans",
         },
         {
-          pic: `${baserUrl}streamkar/rewards/rustyRanger.png`,
+          pic: `${baseUrl}streamkar/rewards/rustyRanger.png`,
           text: "Rusty Ranger entrance x1 day",
         },
         {
-          pic: `${baserUrl}streamkar/rewards/noRew.png`,
+          pic: `${baseUrl}streamkar/rewards/noRew.png`,
           text: "Blessify Room skin (New) x1 day",
         },
       ],
@@ -634,23 +634,23 @@ export const tab1Details = {
       explorePoints: "3",
       rewards: [
         {
-          pic: `${baserUrl}streamkar/rewards/aestheticRoomskin.png`,
+          pic: `${baseUrl}streamkar/rewards/aestheticRoomskin.png`,
           text: "Aesthetic room skin x1 day",
         },
         {
-          pic: `${baserUrl}streamkar/rewards/desireFrame.png`,
+          pic: `${baseUrl}streamkar/rewards/desireFrame.png`,
           text: "Desire frame x1 day",
         },
         {
-          pic: `${baserUrl}streamkar/rewards/beanbag.png`,
+          pic: `${baseUrl}streamkar/rewards/beanbag.png`,
           text: "1000 Beans",
         },
         {
-          pic: `${baserUrl}streamkar/rewards/celebrationRoomskin.png`,
+          pic: `${baseUrl}streamkar/rewards/celebrationRoomskin.png`,
           text: "Celebration room skin x1 day",
         },
         {
-          pic: `${baserUrl}streamkar/rewards/eidDelightFrame.png`,
+          pic: `${baseUrl}streamkar/rewards/eidDelightFrame.png`,
           text: "Eid Delight frame (New) x1 day",
         },
       ],
@@ -663,23 +663,23 @@ export const tab1Details = {
       explorePoints: "4",
       rewards: [
         {
-          pic: `${baserUrl}streamkar/rewards/peaceMakerRoomSkin.png`,
+          pic: `${baseUrl}streamkar/rewards/peaceMakerRoomSkin.png`,
           text: "Peacemaker room skin x1 day",
         },
         {
-          pic: `${baserUrl}streamkar/rewards/maharajaPremium.png`,
+          pic: `${baseUrl}streamkar/rewards/maharajaPremium.png`,
           text: "Maharaja Premium entrance x1 day",
         },
         {
-          pic: `${baserUrl}streamkar/rewards/beanbag.png`,
+          pic: `${baseUrl}streamkar/rewards/beanbag.png`,
           text: "1250 Beans",
         },
         {
-          pic: `${baserUrl}streamkar/rewards/royaltiProfileFrame.png`,
+          pic: `${baseUrl}streamkar/rewards/royaltiProfileFrame.png`,
           text: "Royalty frame x1 day",
         },
         {
-          pic: `${baserUrl}streamkar/rewards/noRew.png`,
+          pic: `${baseUrl}streamkar/rewards/noRew.png`,
           text: "Eid Delight Room skin (New) x1 day",
         },
       ],
@@ -693,43 +693,43 @@ export const tab2Details = {
       pointsReq: "30K",
       rewards: [
         {
-          pic: `${baserUrl}streamkar/rewards/blessifyFrame.png`,
+          pic: `${baseUrl}streamkar/rewards/blessifyFrame.png`,
           text: "Blessify frame x2 days (New)",
         },
         {
-          pic: `${baserUrl}streamkar/rewards/noRew.png`,
+          pic: `${baseUrl}streamkar/rewards/noRew.png`,
           text: "Blessify room skin x2 days (New)",
         },
         {
-          pic: `${baserUrl}streamkar/rewards/eidMandiRoomSkin.png`,
+          pic: `${baseUrl}streamkar/rewards/eidMandiRoomSkin.png`,
           text: "Eid Mandi room skin x1 day",
         },
         {
-          pic: `${baserUrl}streamkar/rewards/unicornFrame.png`,
+          pic: `${baseUrl}streamkar/rewards/unicornFrame.png`,
           text: "Unicorn frame x1 Day",
         },
         {
-          pic: `${baserUrl}streamkar/rewards/spaceship.png`,
+          pic: `${baseUrl}streamkar/rewards/spaceship.png`,
           text: "Spaceship entrance x2 days",
         },
         {
-          pic: `${baserUrl}streamkar/rewards/monarch.png`,
+          pic: `${baseUrl}streamkar/rewards/monarchProfileFrame.png`,
           text: "Monarch frame x2 days",
         },
         {
-          pic: `${baserUrl}streamkar/rewards/subzeroSkin.png`,
+          pic: `${baseUrl}streamkar/rewards/subzeroSkin.png`,
           text: "Subzero room skin x3 days",
         },
         {
-          pic: `${baserUrl}streamkar/rewards/rustyRanger.png`,
+          pic: `${baseUrl}streamkar/rewards/rustyRanger.png`,
           text: "Rusty Ranger entrance x2 days",
         },
         {
-          pic: `${baserUrl}streamkar/rewards/frenzyRoomSkin.png`,
+          pic: `${baseUrl}streamkar/rewards/frenzyRoomSkin.png`,
           text: "Frenzy room skin x1 day",
         },
         {
-          pic: `${baserUrl}streamkar/rewards/gems.png`,
+          pic: `${baseUrl}streamkar/rewards/gems.png`,
           text: "1000 Gems",
         },
       ],

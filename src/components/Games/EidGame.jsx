@@ -14,7 +14,6 @@ import {
   unsuccessAlert,
 } from "../../js/helpers";
 import { ApiContext } from "../../services/Api";
-import { baserUrl } from "../../js/baserUrl";
 import exploreIcon from "../../assets/ExplorePointsIcon.png";
 import turkeyIcon from "../../assets/Popup-icons/turkey-icon.png";
 import tunisiaIcon from "../../assets/Popup-icons/tunisia-icon.png";
@@ -31,9 +30,10 @@ import {
   oopsHead,
   rewardImages,
 } from "../../utils/images";
+import { baseUrl } from "../../js/baserUrl";
 
 function EidGame({ tab1, gamePoints, keyInfo, explorePoints, visitTimes }) {
-  const { userInfo, userId, userToken, refreshApi, disable, setDisable } =
+  const { userInfo, userId, userToken, refreshApi, setDisable } =
     useContext(ApiContext);
 
   const [country, setCountry] = useState({
@@ -88,7 +88,7 @@ function EidGame({ tab1, gamePoints, keyInfo, explorePoints, visitTimes }) {
   const playGame = () => {
     setDisable(true);
     callDartApi(
-      `${baserUrl}api/activity/eidAl/playGame?playCount=${input}&type=${type}`,
+      `${baseUrl}api/activity/eidAl/playGame?playCount=${input}&type=${type}`,
       userId,
       userToken
     )

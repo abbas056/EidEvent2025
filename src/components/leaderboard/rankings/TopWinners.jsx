@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { ApiContext } from "../../../services/Api";
 import { explorePointsIcon, gemIcon, unknown } from "../../../utils/images";
 import userFrame from "../../../assets/1stUserFrame.png";
-import { baserUrl } from "../../../js/baserUrl";
 import {
   captureImageError,
   estBeans,
@@ -11,6 +10,7 @@ import {
 } from "../../../js/helpers";
 import beanIcon from "../../../assets/bean.png";
 import mascot from "../../../assets/Mascot1.png";
+import { baseUrl } from "../../../js/baserUrl";
 
 function TopWinners({
   userName,
@@ -33,17 +33,17 @@ function TopWinners({
   let level;
   let lvlIconWidth;
   if (tab1) {
-    levelUrl = `${baserUrl}streamkar/common/img/ulv/`;
+    levelUrl = `${baseUrl}streamkar/common/img/ulv/`;
     level = userLevel;
     lvlIconWidth = "12vw";
     icon = explorePointsIcon;
   } else if (lbButtonsTop.btn1) {
-    levelUrl = `${baserUrl}streamkar/common/img/tlv/`;
+    levelUrl = `${baseUrl}streamkar/common/img/tlv/`;
     level = actorLevel;
     lvlIconWidth = "7vw";
     icon = gemIcon;
   } else {
-    levelUrl = `${baserUrl}streamkar/common/img/ulv/`;
+    levelUrl = `${baseUrl}streamkar/common/img/ulv/`;
     level = actorLevel;
     lvlIconWidth = "12vw";
     icon = beanIcon;
@@ -118,22 +118,18 @@ function TopWinners({
               <span> {userScore}</span>
             </div>
             {lbMiddle.btn2 ? null : (
-              <div className="est-score p-abs d-flex al-center jc-center">
+              <div className="est-score p-abs d-flex fd-column al-center jc-center">
                 <div
                   className="d-flex al-center jc-center"
                   style={{ gap: "0.5vw" }}
                 >
                   <img
-                    style={
-                      lbButtonsTop.btn2
-                        ? {
-                            backgroundColor: "#295b76",
-                            padding: "0.5vw",
-                            border: "0.5px solid white",
-                            borderRadius: "50%",
-                          }
-                        : null
-                    }
+                    style={{
+                      backgroundColor: "#295b76",
+                      padding: "0.5vw",
+                      border: "0.5px solid white",
+                      borderRadius: "50%",
+                    }}
                     src={icon}
                     alt=""
                   />
@@ -142,8 +138,8 @@ function TopWinners({
                   ) : (
                     <>{lbDayButtons.btn1 ? "Est Beans:" : "Beans Won:"}</>
                   )}{" "}
-                  {estCalculation(beanPotValue, index + 1, lbButtonsTop)}
                 </div>
+                {estCalculation(beanPotValue, index + 1, lbButtonsTop)}
               </div>
             )}
           </div>

@@ -13,12 +13,11 @@ import {
 } from "../js/helpers";
 import handIcon from "../assets/Hand.png";
 import { ApiContext } from "../services/Api";
-import { baserUrl } from "../js/baserUrl";
 import openChestBg from "../assets/OpenChest.png";
 import closeChestBg from "../assets/ClosedChest.png";
 import { oopsHead, treasureUnlock } from "../utils/images";
-import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { baseUrl } from "../js/baserUrl";
 
 function BeansTreasureBox({ country, keyInfo, explorePoints, visitTimes }) {
   const { userId, userToken, refreshApi, disable, setDisable } =
@@ -47,7 +46,7 @@ function BeansTreasureBox({ country, keyInfo, explorePoints, visitTimes }) {
       : 0;
   const openChest = () => {
     setDisable(true);
-    callDartApi(`${baserUrl}api/activity/eidAl/open`, userId, userToken)
+    callDartApi(`${baseUrl}api/activity/eidAl/open`, userId, userToken)
       .then((response) => {
         if (response.msg === "success") {
           const beansValue = response?.data?.openBoxTimes * 1000;
@@ -147,6 +146,7 @@ function BeansTreasureBox({ country, keyInfo, explorePoints, visitTimes }) {
             chestOpen={chestOpen}
           />
           <button
+            disabled={disable}
             onClick={() => {
               if (!isActive) {
                 setToast({
@@ -163,10 +163,9 @@ function BeansTreasureBox({ country, keyInfo, explorePoints, visitTimes }) {
               }
               openChest();
             }}
-            className={isActive ? "gray-0" : "gray-1"}
           >
             <img
-              className={disable ? "gray-1" : "gray-0"}
+              className={disable || !isActive ? "gray-1" : "gray-0"}
               src={openBtn}
               alt=""
             />

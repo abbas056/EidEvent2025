@@ -1,2 +1,2 @@
-export const baserUrl = "http://test.streamkar.tv/";
-// export const baserUrl = "https://www.streamkar.net/";
+export const baseUrl = "http://test.streamkar.tv/";
+// export const baseUrl = "https://www.streamkar.net/";

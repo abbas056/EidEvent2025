@@ -1,8 +1,14 @@
 // src/services/api.js
 
-import React, { createContext, useState, useEffect, useMemo } from "react";
+import React, {
+  createContext,
+  useState,
+  useEffect,
+  useMemo,
+  useRef,
+} from "react";
 import axios from "axios";
-import { baserUrl } from "../js/baserUrl";
+import { baseUrl } from "../js/baserUrl";
 
 const ApiContext = createContext();
 
@@ -46,12 +52,10 @@ function EventProvider({ children }) {
     Bahrain: false,
     Egypt: false,
   });
-
   const [subButton, setsubButton] = useState({
     btn1: true,
     btn2: false,
   });
-
   const countryId = useMemo(() => {
     if (country.Turkey) return 1;
     if (country.Tunisia) return 2;
@@ -71,7 +75,7 @@ function EventProvider({ children }) {
     } catch (_error) {
       setUser({
         uid: 596492375,
-        token: "A14ECE9B090FEB41C6941927CE5740EF6D",
+        token: "A1DE844F71DF3949E891BFC652D39D596A",
       });
 
       console.error("Can't get userInfo by window.phone.getUserInfo");
@@ -82,9 +86,7 @@ function EventProvider({ children }) {
     if (user.uid > 0) {
       setIsLoading(true);
       axios
-        .get(
-          `${baserUrl}api/activity/eidAl/getUserEventInfo?userId=${user.uid}`
-        )
+        .get(`${baseUrl}api/activity/eidAl/getUserEventInfo?userId=${user.uid}`)
         .then((response) => {
           setUserInfo(response.data);
           setIsLoading(false);
@@ -103,7 +105,7 @@ function EventProvider({ children }) {
 
       axios
         .get(
-          `${baserUrl}api/activity/eidF/getLeaderboardInfoV2?eventDesc=20250604_eidi_al_adha&rankIndex=15&pageNum=1&pageSize=20&dayIndex=${dateToUse},${countryId}`
+          `${baseUrl}api/activity/eidF/getLeaderboardInfoV2?eventDesc=20250604_eidi_al_adha&rankIndex=15&pageNum=1&pageSize=20&dayIndex=${dateToUse},${countryId}`
         )
         .then((response) => {
           setTab1LeaderboardData(response.data);
@@ -120,7 +122,7 @@ function EventProvider({ children }) {
     setIsLoading(true);
     axios
       .get(
-        `${baserUrl}api/activity/eidF/getWinnerRankInfo?eventDesc=20250604_eidi_al_adha&rankIndex=2&pageNum=1&pageSize=20`
+        `${baseUrl}api/activity/eidF/getWinnerRankInfo?eventDesc=20250604_eidi_al_adha&rankIndex=2&pageNum=1&pageSize=20`
       )
       .then((response) => {
         setTab2LeaderboardData(response.data);
@@ -136,7 +138,7 @@ function EventProvider({ children }) {
     setIsLoading(true);
     axios
       .get(
-        `${baserUrl}api/activity/eidF/getWinnerRankInfo?eventDesc=20250604_eidi_al_adha&rankIndex=1&pageNum=1&pageSize=20`
+        `${baseUrl}api/activity/eidF/getWinnerRankInfo?eventDesc=20250604_eidi_al_adha&rankIndex=1&pageNum=1&pageSize=20`
       )
       .then((response) => {
         settab1Tickertape(response.data);
@@ -148,66 +150,82 @@ function EventProvider({ children }) {
       });
   }, [user, refresh]);
 
-  const [eventGiftingLeaderboardData, seteventGiftingLeaderboardData] =
-    useState([]);
-  const [lbButtonsTop, setlbButtonsTop] = useState({
-    btn1: true,
-    btn2: false,
-  });
-  const [lbMiddle, setlbMiddle] = useState({
-    btn1: true,
-    btn2: false,
-  });
-  const [lbDayButtons, setlbDayButtons] = useState({
-    btn1: true,
-    btn2: false,
-  });
-
+  //Event Gifting APIs
+  const eventDesc = "20250604_eidi_al_adha";
+  const [gifterOverall, setgifterOverall] = useState([]);
+  const [talentOverall, settalentOverall] = useState([]);
+  const [gifterToday, setgifterToday] = useState([]);
+  const [gifterPrevious, setgifterPrevious] = useState([]);
+  const [talentToday, settalentToday] = useState([]);
+  const [talentPrevious, settalentPrevious] = useState([]);
   useEffect(() => {
-    if (user.uid > 0) {
-      setIsLoading(true);
-
-      let rankIndex = null;
-      let dayIndex = null;
-
-      if (lbButtonsTop.btn1 && lbMiddle.btn1) {
-        rankIndex = 14;
-        dayIndex = lbDayButtons.btn1 ? CurrentDate : PreviousDate;
-      } else if (lbButtonsTop.btn1 && lbMiddle.btn2) {
-        rankIndex = 12;
-      } else if (lbButtonsTop.btn2 && lbMiddle.btn1) {
-        rankIndex = 13;
-        dayIndex = lbDayButtons.btn1 ? CurrentDate : PreviousDate;
-      } else if (lbButtonsTop.btn2 && lbMiddle.btn2) {
-        rankIndex = 11;
-      }
-
-      // Choose correct API
-      const apiUrl = dayIndex
-        ? `${baserUrl}api/activity/eidF/getLeaderboardInfoV2?eventDesc=20250604_eidi_al_adha&rankIndex=${rankIndex}&pageNum=1&pageSize=20&dayIndex=${dayIndex}`
-        : `${baserUrl}api/activity/eidF/getLeaderboardInfoV2?eventDesc=20250604_eidi_al_adha&rankIndex=${rankIndex}&pageNum=1&pageSize=20`;
-
-      axios
-        .get(apiUrl)
-        .then((response) => {
-          seteventGiftingLeaderboardData(response.data);
-          setIsLoading(false);
-        })
-        .catch((err) => {
-          console.log(err);
-          setIsLoading(false);
-        });
-    }
-  }, [
-    user,
-    refresh,
-    lbButtonsTop,
-    lbMiddle,
-    lbDayButtons,
-    CurrentDate,
-    PreviousDate,
-  ]);
-
+    setIsLoading((prev) => ({ ...prev, gifterOverall: true }));
+    axios
+      .get(
+        `${baseUrl}api/activity/eidF/getLeaderboardInfoV2?eventDesc=${eventDesc}&rankIndex=11&pageNum=1&pageSize=20`
+      )
+      .then((res) => setgifterOverall(res.data))
+      .catch((err) => console.error("Error in gifterOverall:", err))
+      .finally(() =>
+        setIsLoading((prev) => ({ ...prev, gifterOverall: false }))
+      );
+  }, []);
+  useEffect(() => {
+    setIsLoading((prev) => ({ ...prev, talentOverall: true }));
+    axios
+      .get(
+        `${baseUrl}api/activity/eidF/getLeaderboardInfoV2?eventDesc=${eventDesc}&rankIndex=12&pageNum=1&pageSize=20`
+      )
+      .then((res) => settalentOverall(res.data))
+      .catch((err) => console.error("Error in talentOverall:", err))
+      .finally(() =>
+        setIsLoading((prev) => ({ ...prev, talentOverall: false }))
+      );
+  }, []);
+  useEffect(() => {
+    setIsLoading((prev) => ({ ...prev, gifterToday: true }));
+    axios
+      .get(
+        `${baseUrl}api/activity/eidF/getLeaderboardInfoV2?eventDesc=${eventDesc}&rankIndex=13&pageNum=1&pageSize=20&dayIndex=${CurrentDate}`
+      )
+      .then((res) => setgifterToday(res.data))
+      .catch((err) => console.error("Error in gifterToday:", err))
+      .finally(() => setIsLoading((prev) => ({ ...prev, gifterToday: false })));
+  }, [CurrentDate]);
+  useEffect(() => {
+    setIsLoading((prev) => ({ ...prev, gifterPrevious: true }));
+    axios
+      .get(
+        `${baseUrl}api/activity/eidF/getLeaderboardInfoV2?eventDesc=${eventDesc}&rankIndex=13&pageNum=1&pageSize=20&dayIndex=${PreviousDate}`
+      )
+      .then((res) => setgifterPrevious(res.data))
+      .catch((err) => console.error("Error in gifterPrevious:", err))
+      .finally(() =>
+        setIsLoading((prev) => ({ ...prev, gifterPrevious: false }))
+      );
+  }, [PreviousDate]);
+  useEffect(() => {
+    setIsLoading((prev) => ({ ...prev, talentToday: true }));
+    axios
+      .get(
+        `${baseUrl}api/activity/eidF/getLeaderboardInfoV2?eventDesc=${eventDesc}&rankIndex=14&pageNum=1&pageSize=20&dayIndex=${CurrentDate}`
+      )
+      .then((res) => settalentToday(res.data))
+      .catch((err) => console.error("Error in talentToday:", err))
+      .finally(() => setIsLoading((prev) => ({ ...prev, talentToday: false })));
+  }, [CurrentDate]);
+  useEffect(() => {
+    setIsLoading((prev) => ({ ...prev, talentPrevious: true }));
+    axios
+      .get(
+        `${baseUrl}api/activity/eidF/getLeaderboardInfoV2?eventDesc=${eventDesc}&rankIndex=14&pageNum=1&pageSize=20&dayIndex=${PreviousDate}`
+      )
+      .then((res) => settalentPrevious(res.data))
+      .catch((err) => console.error("Error in talentPrevious:", err))
+      .finally(() =>
+        setIsLoading((prev) => ({ ...prev, talentPrevious: false }))
+      );
+  }, [PreviousDate]);
   return (
     <div>
       <ApiContext.Provider
@@ -230,13 +248,12 @@ function EventProvider({ children }) {
           setCountry,
           subButton,
           setsubButton,
-          lbButtonsTop,
-          setlbButtonsTop,
-          lbMiddle,
-          setlbMiddle,
-          lbDayButtons,
-          setlbDayButtons,
-          eventGiftingLeaderboardData: eventGiftingLeaderboardData?.data,
+          gifterOverall: gifterOverall?.data,
+          talentOverall: talentOverall?.data,
+          gifterToday: gifterToday?.data,
+          gifterPrevious: gifterPrevious?.data,
+          talentToday: talentToday?.data,
+          talentPrevious: talentPrevious?.data,
         }}
       >
         {children}

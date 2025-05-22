@@ -6,13 +6,13 @@ import PopupButtons from "./components/PopupButtons";
 import { overFlowAuto, overFlowHidden } from "./js/helpers";
 import axios from "axios";
 import { ApiContext } from "./services/Api";
-import { baserUrl } from "./js/baserUrl";
 import Marque from "./components/Marquee";
 import MainButtons from "./components/MainButtons";
 import Footer from "./components/common/Footer";
 import btnUp from "./assets/top.png";
 import tab1Bg from "./assets/bg.jpg";
 import tab2Bg from "./assets/tab2Bg.jpg";
+import { baseUrl } from "./js/baserUrl";
 
 const App = () => {
   let [language, setLanguage] = useState("English");
@@ -50,7 +50,7 @@ const App = () => {
       setIsLoading(true);
       axios
         .get(
-          `${baserUrl}api/activity/eidF/getRecordInfoV2?eventDesc=20250604_eidi_al_adha&rankIndex=21&pageNum=${loadMore}&pageSize=20&type=${
+          `${baseUrl}api/activity/eidF/getRecordInfoV2?eventDesc=20250604_eidi_al_adha&rankIndex=21&pageNum=${loadMore}&pageSize=20&type=${
             mainTabs.tab1 ? 1 : 2
           }&userId=${userId}`
         )

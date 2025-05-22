@@ -28,17 +28,19 @@ import Loader from "../common/Loader";
 function EventGifting({ close, eventGifting }) {
   const {
     userInfo,
-    lbButtonsTop,
-    setlbButtonsTop,
-    lbMiddle,
-    setlbMiddle,
-    lbDayButtons,
-    setlbDayButtons,
-    eventGiftingLeaderboardData,
     isLoading,
     CurrentDate,
     PreviousDate,
+    gifterOverall,
+    talentOverall,
+    gifterToday,
+    gifterPrevious,
+    talentToday,
+    talentPrevious,
   } = useContext(ApiContext);
+  const [lbButtonsTop, setlbButtonsTop] = useState({ btn1: true, btn2: false });
+  const [lbMiddle, setlbMiddle] = useState({ btn1: true, btn2: false });
+  const [lbDayButtons, setlbDayButtons] = useState({ btn1: true, btn2: false });
   const [rewButtonsTop, setrewButtonsTop] = useState({
     btn1: true,
     btn2: false,
@@ -57,14 +59,36 @@ function EventGifting({ close, eventGifting }) {
       restBoard.current.scrollTop = 0;
     }
   };
-  const topWinners = slicePlease(eventGiftingLeaderboardData?.list, 0, 3);
+
+  let leaderboardData;
+  if (lbButtonsTop.btn1) {
+    if (lbMiddle.btn1) {
+      if (lbDayButtons.btn1) {
+        leaderboardData = talentToday;
+      } else {
+        leaderboardData = talentPrevious;
+      }
+    } else {
+      leaderboardData = talentOverall;
+    }
+  } else if (lbButtonsTop.btn2) {
+    if (lbMiddle.btn1) {
+      if (lbDayButtons.btn1) {
+        leaderboardData = gifterToday;
+      } else {
+        leaderboardData = gifterPrevious;
+      }
+    } else {
+      leaderboardData = gifterOverall;
+    }
+  }
+  const topWinners = slicePlease(leaderboardData?.list, 0, 3);
   const restWinners = slicePlease(
-    eventGiftingLeaderboardData?.list,
+    leaderboardData?.list,
     3,
-    eventGiftingLeaderboardData?.list?.length
+    leaderboardData?.list?.length
   );
   let userDailyPot = userInfo?.beansPotInfo?.[`DAILY_USER_${CurrentDate}`];
-  let userPreviousPot = userInfo?.beansPotInfo?.[`DAILY_USER_${PreviousDate}`];
   let talentDailyPot = userInfo?.beansPotInfo?.[`DAILY_GEMS_${CurrentDate}`];
   let talentPreviousPot =
     userInfo?.beansPotInfo?.[`DAILY_GEMS_${PreviousDate}`];
@@ -213,7 +237,7 @@ function EventGifting({ close, eventGifting }) {
           <Loader />
         ) : (
           <div className="rank-section p-rel">
-            {eventGiftingLeaderboardData?.count === 0 ? (
+            {leaderboardData?.count === 0 ? (
               <p className="no-data">No Records Found</p>
             ) : (
               <div className="rank-section-inner">
@@ -312,7 +336,7 @@ function EventGifting({ close, eventGifting }) {
                 </div>
               </div>
             )}
-            {eventGiftingLeaderboardData?.count > 10 ? (
+            {leaderboardData?.count > 10 ? (
               <SeeMore
                 position="unset"
                 active={active}

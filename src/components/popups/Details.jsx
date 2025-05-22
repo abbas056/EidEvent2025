@@ -87,7 +87,9 @@ function Details({ close, mainTabs }) {
           />
           <div className="inner-content m-auto" style={{ marginTop: "22vw" }}>
             <div className="head d-flex w-100">
-              <div className="w-20 bg-brown d-flex">Button Name</div>
+              <div className="w-20 bg-brown d-flex">
+                Button <br /> Name
+              </div>
               <div className="w-20 bg-brown d-flex">Talent Points Requires</div>
               <div className="w-60 bg-brown d-flex border-b">Rewards</div>
             </div>

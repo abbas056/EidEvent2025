@@ -1,10 +1,8 @@
 import React, { useContext } from "react";
 import icon from "../../../assets/ExplorePointsIcon.png";
 import { ApiContext } from "../../../services/Api";
-import { baserUrl } from "../../../js/baserUrl";
 import {
   captureImageError,
-  estBeans,
   estCalculation,
   formatData,
   goTo,
@@ -17,6 +15,7 @@ import {
   unknown,
 } from "../../../utils/images";
 import LeaderBoardSlider from "./../../leaderboard-slider/LeaderBoardSlider";
+import { baseUrl } from "../../../js/baserUrl";
 
 function RestWinners({
   userName,
@@ -42,17 +41,17 @@ function RestWinners({
   let level;
   let lvlIconWidth;
   if (tab1) {
-    levelUrl = `${baserUrl}streamkar/common/img/ulv/`;
+    levelUrl = `${baseUrl}streamkar/common/img/ulv/`;
     level = userLevel;
     lvlIconWidth = "12vw";
     icon = explorePointsIcon;
   } else if (eventGifting && lbButtonsTop.btn1) {
-    levelUrl = `${baserUrl}streamkar/common/img/tlv/`;
+    levelUrl = `${baseUrl}streamkar/common/img/tlv/`;
     level = actorLevel;
     lvlIconWidth = "7vw";
     icon = gemIcon;
   } else {
-    levelUrl = `${baserUrl}streamkar/common/img/ulv/`;
+    levelUrl = `${baseUrl}streamkar/common/img/ulv/`;
     level = actorLevel;
     lvlIconWidth = "12vw";
     icon = beanIcon;

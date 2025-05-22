@@ -17,8 +17,8 @@ function Guide({ language, close }) {
     : (current = guideContent.English);
   const [collapsible, setcollapsible] = useState({
     boxFirst: true,
-    boxSecond: true,
-    boxThird: true,
+    boxSecond: false,
+    boxThird: false,
   });
   const collapsibleSwitch = (id) => {
     setcollapsible((prevState) => ({
