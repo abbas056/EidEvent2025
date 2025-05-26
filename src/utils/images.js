@@ -115,12 +115,15 @@ export function rewardImages(rewDesc) {
     rewImg = baseUrl + "streamkar/rewards/maharajaPremium.png";
   } else if (rewDesc === "Royalty frame") {
     rewImg = baseUrl + "streamkar/rewards/royaltiProfileFrame.png";
-  } else if (rewDesc === "Eid Delight Room skin") {
-    rewImg = baseUrl + "streamkar/rewards/noRew.png";
+  } else if (rewDesc === "Eid Delight Room skin (New)") {
+    rewImg = baseUrl + "streamkar/rewards/eidDelightRoomSkin.png";
   } else if (rewDesc === "Eid Delight frame (New)") {
     rewImg = baseUrl + "streamkar/rewards/eidDelightFrame.png";
-  } else if (rewDesc === "Blessify Room skin (New)") {
-    rewImg = baseUrl + "streamkar/rewards/noRew.png";
+  } else if (
+    rewDesc === "Blessify Room skin (New)" ||
+    rewDesc === "Blessify room skin (New)"
+  ) {
+    rewImg = baseUrl + "streamkar/rewards/blessifyRoomskin.png";
   } else if (rewDesc === "Blessify frame (New)") {
     rewImg = baseUrl + "streamkar/rewards/blessifyFrame.png";
   } else if (rewDesc === "MasterMind room skin (NEW)") {

@@ -1,11 +1,9 @@
 import React, { useContext, useRef, useState } from "react";
-import { cross, dummyData, slicePlease } from "../../js/helpers";
+import { cross, slicePlease } from "../../js/helpers";
 import eventGiftingTitle from "../../assets/popups/Event-Gifting/title.png";
 import EventGifts from "../common/EventGifts";
 import SubButtons from "../common/SubButtons";
 import subBtnBg from "../../assets/subBtnBase.png";
-import gemPotImg from "../../assets/popups/Event-Gifting/gems-pot.png";
-import gemicon from "../../assets/gems.png";
 import bg1 from "../../assets/popups/Event-Gifting/bg.png";
 import bg2 from "../../assets/popups/Event-Gifting/bg2.png";
 import GftingRewButtons from "../GftingRewButtons";

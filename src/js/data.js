@@ -47,7 +47,7 @@ export const talentsOverallRewards = [
     frame: [
       { pic: gemsbag },
       { pic: `${baseUrl}streamkar/rewards/eidDelightFrame.png` },
-      { pic: `${baseUrl}streamkar/rewards/noRew.png` },
+      { pic: `${baseUrl}streamkar/rewards/eidDelightRoomSkin.png` },
     ],
   },
   {
@@ -63,7 +63,7 @@ export const talentsOverallRewards = [
     frame: [
       { pic: gemsbag },
       { pic: `${baseUrl}streamkar/rewards/eidDelightFrame.png` },
-      { pic: `${baseUrl}streamkar/rewards/noRew.png` },
+      { pic: `${baseUrl}streamkar/rewards/eidDelightRoomSkin.png` },
     ],
   },
   {
@@ -79,7 +79,7 @@ export const talentsOverallRewards = [
     frame: [
       { pic: gemsbag },
       { pic: `${baseUrl}streamkar/rewards/eidDelightFrame.png` },
-      { pic: `${baseUrl}streamkar/rewards/noRew.png` },
+      { pic: `${baseUrl}streamkar/rewards/eidDelightRoomSkin.png` },
     ],
   },
 ];
@@ -163,7 +163,7 @@ export const usersOverallRewards = [
     frame: [
       { pic: `${baseUrl}streamkar/rewards/beanbag.png` },
       { pic: `${baseUrl}streamkar/rewards/blessifyFrame.png` },
-      { pic: `${baseUrl}streamkar/rewards/noRew.png` },
+      { pic: `${baseUrl}streamkar/rewards/blessifyRoomskin.png` },
     ],
   },
   {
@@ -178,7 +178,7 @@ export const usersOverallRewards = [
     frame: [
       { pic: `${baseUrl}streamkar/rewards/beanbag.png` },
       { pic: `${baseUrl}streamkar/rewards/blessifyFrame.png` },
-      { pic: `${baseUrl}streamkar/rewards/noRew.png` },
+      { pic: `${baseUrl}streamkar/rewards/blessifyRoomskin.png` },
     ],
   },
   {
@@ -193,7 +193,7 @@ export const usersOverallRewards = [
     frame: [
       { pic: `${baseUrl}streamkar/rewards/beanbag.png` },
       { pic: `${baseUrl}streamkar/rewards/blessifyFrame.png` },
-      { pic: `${baseUrl}streamkar/rewards/noRew.png` },
+      { pic: `${baseUrl}streamkar/rewards/blessifyRoomskin.png` },
     ],
   },
 ];
@@ -621,7 +621,7 @@ export const tab1Details = {
           text: "Rusty Ranger entrance x1 day",
         },
         {
-          pic: `${baseUrl}streamkar/rewards/noRew.png`,
+          pic: `${baseUrl}streamkar/rewards/blessifyRoomskin.png`,
           text: "Blessify Room skin (New) x1 day",
         },
       ],
@@ -679,7 +679,7 @@ export const tab1Details = {
           text: "Royalty frame x1 day",
         },
         {
-          pic: `${baseUrl}streamkar/rewards/noRew.png`,
+          pic: `${baseUrl}streamkar/rewards/eidDelightRoomSkin.png`,
           text: "Eid Delight Room skin (New) x1 day",
         },
       ],
@@ -697,7 +697,7 @@ export const tab2Details = {
           text: "Blessify frame x2 days (New)",
         },
         {
-          pic: `${baseUrl}streamkar/rewards/noRew.png`,
+          pic: `${baseUrl}streamkar/rewards/blessifyRoomskin.png`,
           text: "Blessify room skin x2 days (New)",
         },
         {

@@ -124,12 +124,16 @@ function TopWinners({
                   style={{ gap: "0.5vw" }}
                 >
                   <img
-                    style={{
-                      backgroundColor: "#295b76",
-                      padding: "0.5vw",
-                      border: "0.5px solid white",
-                      borderRadius: "50%",
-                    }}
+                    style={
+                      lbButtonsTop.btn2
+                        ? {
+                            backgroundColor: "#295b76",
+                            padding: "0.5vw",
+                            border: "0.5px solid white",
+                            borderRadius: "50%",
+                          }
+                        : null
+                    }
                     src={icon}
                     alt=""
                   />

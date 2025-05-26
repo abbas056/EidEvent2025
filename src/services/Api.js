@@ -70,7 +70,6 @@ function EventProvider({ children }) {
           uid: userInfo.userId > 0 ? userInfo.userId : 0,
           token: userInfo.token !== "" ? userInfo.token : null,
         });
-        alert(userInfo.token);
       });
     } catch (_error) {
       setUser({
